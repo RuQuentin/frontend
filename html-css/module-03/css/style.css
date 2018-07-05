@@ -1,0 +1,29 @@
+body {
+  background-image: url("/img/page-bg.jpg");
+  weight: 100vh;
+  font-family: "Arial", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(78, 80, 80);
+  line-height: 17px;
+}
+
+h2 {
+  font-family: "Pathway Gothic One";
+  font-size: 25px;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+
+li.about-section-item {
+  list-style: none;
+}
+
+p.about-section-item {
+  font-weight: 700;
+}
+
+li.offer-list-item {
+  list-style: none;
+  font-weight: 700;
+}
