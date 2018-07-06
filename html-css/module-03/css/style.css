@@ -1,7 +1,7 @@
 /* * {
   outline: 1px solid red;
-} */
-
+}
+ */
 html {
   box-sizing: border-box;
 }
@@ -10,6 +10,11 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -30,84 +35,73 @@ body {
 .container {
   background-color: #fff;
   width: 480px;
-  margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
   padding: 56px 37px 44px 37px;
 }
 
-h1 {
+.visually-hidden {
   font-size: 0px;
 }
 
-section.about-section {
+.about-section {
   margin-bottom: 50px;
 }
 
-h2 {
+.about-section__offer {
+  margin-bottom: 36px;
+}
+
+.about-section__title {
   font-family: "Pathway Gothic One";
   font-size: 25px;
   color: #263555;
   line-height: 30px;
   text-transform: uppercase;
-  margin: 0;
   margin-bottom: 28px;
 }
 
-img.about-section {
-  display: block;
-  margin-bottom: 28px;
-}
-
-ul.about-section {
-  padding: 0px;
-  margin: 0px;
-  width: 334px;
-}
-
-li.about-section-item {
-  list-style: none;
-  margin-bottom: 24px;
-}
-
-li.about-section-item:last-of-type {
-  margin-bottom: 0px;
-}
-
-p {
-  margin: 0px;
-}
-
-p.about-section-item {
+.about-section__subtitle {
   font-size: 14px;
   color: #263555;
   line-height: 19px;
   margin-bottom: 20px;
 }
 
-.divider {
+.about-section img {
+  display: block;
+  margin-bottom: 28px;
+}
+
+.about-section__list {
+  padding: 0px;
+  width: 334px;
+  list-style: none;
+}
+
+.about-section__list li:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.section-divider {
+  height: 1px;
+  border-bottom: 1px solid #dedbdb;
   margin-bottom: 56px;
 }
 
-ul.offer-list {
+.offer-list {
   display: inline-block;
   vertical-align: top;
   font-size: 14px;
   line-height: 23px;
   padding-left: 24px;
-  margin: 0px;
+  list-style: none;
 }
 
-li.offer-list-item {
-  list-style: none;
+.offer-list li:not(:last-child) {
   margin-bottom: 15px;
 }
 
-li.offer-list-item:last-of-type {
-  margin-bottom: 0px;
-}
-
-section.offer {
-  margin-bottom: 36px;
-}
 
 /* visually-hidden helper */
 .visually-hidden:not(:focus):not(:active),
