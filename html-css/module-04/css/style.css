@@ -1,0 +1,249 @@
+/* * {
+  outline: 1px solid red;
+}
+ */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("../img/page-bg.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  font-family: "Arial", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgb(78, 80, 80);
+  line-height: 19px;
+  padding-top: 230px;
+  padding-bottom: 268px;
+}
+
+.container {
+  background-color: #fff;
+  width: 1024px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 114px 61px 72px 61px;
+}
+
+.visually-hidden {
+  font-size: 0px;
+}
+
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.block-wrapper__underlined {
+  padding-bottom: 48px;
+  margin-bottom: 56px;
+  border-bottom: 1px solid #dedbdb;
+}
+
+.about-section__description:not(:last-of-type) {
+  margin-bottom: 14px;
+}
+
+.about-section__title {
+  font-family: "Pathway Gothic One";
+  font-size: 32px;
+  color: #263555;
+  line-height: 38px;
+  text-transform: uppercase;
+  margin-bottom: 44px;
+}
+
+.about-section__subtitle {
+  font-size: 15px;
+  color: #263555;
+  line-height: 19px;
+  margin-bottom: 16px;
+}
+
+
+/* TOP LEFT BLOCK */
+
+.about-section__profile {
+  float: left;
+  width: 646px;
+}
+
+.about-section__profile img {
+  float: left;
+  display: block;
+  margin-right: 24px;
+  margin-bottom: 22px;
+}
+
+
+/* TOP RIGHT BLOCK */
+
+.about-section__principles {
+/*   width: 210px; */
+  float: right;
+  padding-bottom: 50px;
+}
+
+.about-section__list {
+  padding: 0px;
+  list-style: none;
+  counter-reset: countPrinciples;
+  width: 210px;
+}
+
+.about-section__list li {
+  counter-increment: countPrinciples;
+}
+
+.about-section__list li:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.about-section__list li::before {
+  box-sizing: border-box;
+  content: counter(countPrinciples);
+  float: left;
+  width: 26px;
+  height: 26px;
+  background-color: #38afe5;
+  border-radius: 50%;
+  border: 1px solid #4396bc;
+  text-align: center;
+  line-height: 26px;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.about-section__item {
+  float: left;
+  width: 173px;
+}
+
+
+/* BOTTOM LEFT BLOCK */
+
+.about-section__offer {
+  float: left;
+  width: 646px;
+  margin-bottom: 36px;
+}
+
+.about-section__offer > .about-section__title {
+  margin-bottom: 64px;
+}
+
+.about-section__offer > .about-section__description:last-of-type {
+  margin-bottom: 34px;
+}
+
+.offer-list {
+  float: left;
+  vertical-align: top;
+  font-size: 15px;
+  line-height: 23px;
+  list-style: none;
+  margin-right: 43px;
+}
+
+.offer-list:last-of-type {
+  margin-right: 0px;
+}
+
+.offer-list li:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.offer-list li:before {
+  content: '\279C';
+  color: #38afe5;
+  margin-right: 9px;
+}
+
+
+/* BOTTOM RIGHT BLOCK */
+
+.about-section__testimonial {
+  float: right;
+  width: 210px;
+}
+
+.about-section__testimonial > .about-section__title {
+  margin-bottom: 20px;
+}
+
+.about-section__quotation {
+  box-sizing: border-box;
+  border: 1px solid #dfdcdc;
+  border-radius: 2px;
+  background-color: #fcfafa;
+  font-size: 15px;
+  color: #263555;
+  line-height: 19px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.about-section__quotation::before {
+  display: inline-block;
+  content: '"';
+  width: 14px;
+  height: 12px;
+  text-align: center;
+}
+
+.about-section__quotation::after {
+  display: inline-block;
+  content: '"';
+  width: 14px;
+  height: 12px;
+  text-align: center;
+}
+
+.about-section__name {
+  font-size: 15px;
+  color: #263555;
+  line-height: 19px;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.about-section__occupation {
+  text-align: center;
+}
+
+
+
+/* visually-hidden helper */
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
