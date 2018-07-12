@@ -12,7 +12,7 @@
   content: counter(a);
   color: white;
 }
-
+/* 
 .green {
   float: right;
   width: 100px;
@@ -35,7 +35,7 @@
   height: 300px;
   background: radial-gradient(circle farthest-side at 50px 50px, snow, grey);
   box-shadow: 5px 5px 20px grey, -5px -5px 500px grey;
-}
+} */
 
 :root {
   --blockWidth: 30vw;
@@ -96,11 +96,11 @@
 
 /* ТЕСТЫ ПО СЧЕТЧИКАМ */
 
-.wrapper {
+/* .wrapper {
   counter-reset: count-box
                  count-block 100
                  count-h;
-}
+} */
 
 .box {
   counter-increment: count-box 1;
@@ -127,4 +127,55 @@ h4 {
 h4:last-of-type::after {
   margin-left: 20px;
   content: 'Всего заголовков: 'counter(count-h, upper-roman);
+}
+
+
+
+.container1 {
+  position: relative;
+  background-color: grey;
+  margin: 10px;
+  padding: 20px;
+}
+
+.green1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background-color: palegreen;
+  z-index: 1;
+}
+
+.blue1 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: lightskyblue;
+}
+
+.red1 {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle farthest-side at 50px 50px, snow, pink);
+  box-shadow: 5px 10px 10px white, -5px -5px 20px black;
+}
+
+
+/* STICKY */
+.wrapper-sticky {
+  width: 50vw;
+  margin: 20px auto;
+  background-color: palegreen;
+}
+
+.header {
+  text-align: center;
+  position: sticky;
+  top: 100px;
+  bottom: 100px;
+  background-color: grey;
 }
