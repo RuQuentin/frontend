@@ -46,62 +46,58 @@
   margin: auto;
   width: var(--blockWidth);
   height: calc(var(--blockWidth)-50%);
-  background: linear-gradient(90deg,
-  green 0%, green 10%,
-  white 20%, white 80%,
-  pink 90%, pink 100%)
+  background: linear-gradient(
+    90deg,
+    green 0%,
+    green 10%,
+    white 20%,
+    white 80%,
+    pink 90%,
+    pink 100%
+  );
 }
-
 .darking-image {
   width: 500px;
   height: 100px;
   border-radius: 10px;
   margin: auto;
   margin-top: 20px;
-  background:
-  linear-gradient(rgba(255,255,255,0.3),
-  rgba(255,255,255,0.3)),
-  url('../img/Airplane.jpg');
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("../img/Airplane.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-/*   box-shadow: inset 0 0 30px black; */
+  /*   box-shadow: inset 0 0 30px black; */
   box-shadow: 0px 20px 10px -5px black;
 }
-
 /* .darking-image::before {
   box-shadow: 5px 5px 5px grey;
 } */
-
 .darking-image:hover {
-  background-image: url('../img/Airplane.jpg');
+  background-image: url("../img/Airplane.jpg");
 }
-
 .filtered-image {
   margin: auto;
   margin-top: 20px;
   text-align: center;
 }
-
 .filtered-image img {
   text-align: center;
-  filter: saturate(10%)
+  filter: saturate(10%);
 }
-
 .filtered-image img:hover {
-/*   filter: invert(100%) drop-shadow(0px 0px 20px red); */
+  /*   filter: invert(100%) drop-shadow(0px 0px 20px red); */
   filter: none;
 }
-
-
-
 /* ТЕСТЫ ПО СЧЕТЧИКАМ */
-
 /* .wrapper {
   counter-reset: count-box
                  count-block 100
                  count-h;
 } */
-
+/* 
 .box {
   counter-increment: count-box 1;
 }
@@ -163,10 +159,9 @@ h4:last-of-type::after {
   background: radial-gradient(circle farthest-side at 50px 50px, snow, pink);
   box-shadow: 5px 10px 10px white, -5px -5px 20px black;
 }
-
-
+ */
 /* STICKY */
-.wrapper-sticky {
+/* .wrapper-sticky {
   width: 50vw;
   margin: 20px auto;
   background-color: palegreen;
@@ -178,4 +173,54 @@ h4:last-of-type::after {
   top: 100px;
   bottom: 100px;
   background-color: grey;
+} */
+
+/* FLEX */
+
+* {
+  box-sizing: border-box;
+}
+
+.flex-container__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  background-color: lightblue;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.flex-container__box {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  height: 70%;
+  list-style: none;
+  padding: 0px;
+  background-color: grey;
+}
+
+.flex-container__item {
+  position: relative;
+  padding: 10px;
+  flex-basis: auto;
+}
+
+.flex-container__item:nth-of-type(4n-3) {
+  background-color: darkolivegreen;
+}
+
+.flex-container__item:nth-of-type(4n-2) {
+  background-color: palevioletred;
+}
+
+.flex-container__item:nth-of-type(4n-1) {
+  background-color: darkkhaki;
+}
+
+.flex-container__item:nth-of-type(4n) {
+  background-color: darkcyan;
 }

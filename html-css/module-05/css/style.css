@@ -38,20 +38,20 @@ img {
 }
 
 h2 {
-  font-family: 'Pathway Gothic One', 'Arial Narrow', sans-serif;
+  font-family: "Pathway Gothic One", "Arial Narrow", sans-serif;
   font-size: 30px;
-  line-height: 36px;
+line-height: 36px;
   color: #263555;
   text-transform: uppercase;
   margin-bottom: 44px;
 }
 
 .main-menu {
-/*   display: block; */
-  font-family: 'Pathway Gothic One', 'Arial Narrow', sans-serif;
+  /*   display: block; */
+  font-family: "Pathway Gothic One", "Arial Narrow", sans-serif;
   font-size: 28px;
   line-height: 34px;
-  color:#ffffff;
+  color: #ffffff;
   text-transform: uppercase;
   margin-bottom: 108px;
   text-align: center;
@@ -59,20 +59,20 @@ h2 {
 
 .main-menu nav {
   position: relative;
-  width: 828px;
+  width: 1024px;
   height: 34px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .main-menu__left {
   position: absolute;
-  left: 0px;
+  left: 60px;
   top: 0px;
 }
 
 .main-menu__right {
   position: absolute;
-  right: 0px;
+  right: 60px;
   top: 0px;
 }
 
@@ -115,7 +115,7 @@ h2 {
 }
 
 .main-menu__submenu::before {
-  content: '';
+  content: "";
   display: block;
   box-sizing: content-box;
   position: absolute;
@@ -138,7 +138,7 @@ h2 {
   height: 138px;
   background-color: #ffffff;
   border-radius: 50%;
-  font-family: 'Dorsa','Pathway Gothic One', 'Arial Narrow', sans-serif;
+  font-family: "Dorsa", "Pathway Gothic One", "Arial Narrow", sans-serif;
   font-size: 60px;
   line-height: 138px;
   color: #263555;
@@ -158,8 +158,8 @@ h2 {
 .slider {
   position: relative;
   width: 902px;
-/*   height: 580px; */
-  font-family: 'Pathway Gothic One', 'Arial Narrow', sans-serif;
+  /*   height: 580px; */
+  font-family: "Pathway Gothic One", "Arial Narrow", sans-serif;
   text-transform: uppercase;
   margin: auto;
   margin-bottom: 50px;
@@ -254,7 +254,7 @@ h2 {
 }
 
 .destinations__title {
-  font-family: 'Open Sans Condensed', 'Arial Narrow', sans-serif;
+  font-family: "Open Sans Condensed", "Arial Narrow", sans-serif;
   font-size: 30px;
   line-height: 36px;
   color: #ffffff;
@@ -275,14 +275,14 @@ h2 {
   border: none;
   border-radius: 5px;
   box-shadow: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 12px;
   line-height: 18px;
   cursor: pointer;
 }
 
 .button-back {
-/*   position: fixed; */
+  /*   position: fixed; */
   position: absolute;
   right: 16px;
   bottom: 16px;
@@ -296,7 +296,6 @@ h2 {
   background-size: 60%;
   background-position: center;
 }
-
 
 /* visually-hidden helper */
 .visually-hidden:not(:focus):not(:active),
@@ -318,11 +317,10 @@ input[type="radio"].visually-hidden {
 }
 
 .clearfix::after {
-  content: '';
+  content: "";
   clear: both;
   display: table;
 }
-
 
 /* ВАРИАНТ ВЕРСТКИ МЕНЮ ЦЕЛЬНЫМ СПИСКОМ */
 /* .main-menu nav {
