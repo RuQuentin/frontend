@@ -59,9 +59,14 @@
     <h1 class='visually-hidden'>About Agency</h1>
 
     <div class="main__first-part">
-      <section class='section'>
+      <section class='section clearfix'>
         <h2 class='section__title'>Agency Profile</h2>
-        <img src="./img/airplane.jpg" alt="Airplane Picture" width="" height="">
+
+        <picture>
+          <source media="(max-width: 550px)" srcset="./img/airplane-small.jpg" sizes="">
+          <img src="./img/airplane.jpg" alt="Airplane Picture" width="" height="">
+        </picture>
+
         <p class='section__subtitle'>Gellentesque imperdiet gerti loki holewvelit neque. Ut vestibulum mi sit</p>
         <p class='section__content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse jew
           wligulawe dolor, condimentum ac justo sed, tincidunt commodo molity wer
@@ -155,7 +160,7 @@
     <div class="footer__menu-contact container">
       <ul class='footer__menu'>
         <li>
-          <a href="#">FAQs Page</a>
+          <a class='fuck' href="#">FAQs Page</a>
         </li>
         <li>
           <a href="#">People Say</a>
@@ -214,7 +219,9 @@
     <ul class='footer__credits'>
       <li>Journey &copy; 2013</li>
       <li>Privacy Policy</li>
-      <li>Website designed by TemplateMonster.com</li>
+      <li>Website designed by
+        <a href="#">TemplateMonster.com</a>
+      </li>
     </ul>
   </footer>
 
