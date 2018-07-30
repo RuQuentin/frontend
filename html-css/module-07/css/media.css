@@ -3,7 +3,7 @@
   .header__navigation {
     margin-bottom: 14.57%;
   }
-  
+
   .header__menu {;
     width: 100%;
     justify-content: space-around;
@@ -23,6 +23,7 @@
   
   .section__greeting-subtitle {
     font-size: 2rem;
+    margin-bottom: 6.12%;
   }
 
   .section__subtitle {
@@ -95,6 +96,10 @@
 
   .section__services-item-name {
     margin-bottom: 7%;
+  }
+
+  .section__contact-form {
+    max-width: 100%;
   }
 
   .section__contact-form-fields {

@@ -308,6 +308,12 @@ ul {
   color: #ffffff;
 }
 
+.section__contact-form {
+  max-width: 456px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 input {
   width: 100%;
   height: 50px;
