@@ -1,0 +1,381 @@
+/* * {
+  outline: 1px solid red;
+} */
+
+@font-face {
+  font-family: "Montserrat Regular";
+  src: url(../fonts/montserrat-v12-latin-regular.woff);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat Bold";
+  src: url(../fonts/montserrat-v12-latin-700.woff);
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Great Vibes Regular";
+  src: url(../fonts/great-vibes-v5-latin-regular.woff);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Serif Bold Italic";
+  src: url(../fonts/noto-serif-v6-latin-700italic.woff);
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Roboto Slab Regular";
+  src: url(../fonts/roboto-slab-v7-latin-regular.woff);
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: "Roboto Slab Regular";
+  font-size: 14px;
+  color: #777777;
+  line-height: 1.2;
+  background-color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.header {
+  position: relative;
+  padding-bottom: 11.43%;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/background-image.jpg');
+    filter: brightness(50%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+  }
+
+  .container {
+    max-width: 100%;
+    min-width: 320px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* OPTION: vertical menu for small screens */
+/* .header__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+
+.header__logo {
+  font-family: "Great Vibes Regular";
+  font-size: 1.857rem;
+  color: #fed136;
+}
+
+.header__menu {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  font-family: "Montserrat Regular";
+  text-transform: uppercase;
+  color: #ffffff;
+} */
+
+
+
+  /* OPTION: horisontal menu for small screens */
+
+.header__navigation {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding-top: 20px;
+  margin-bottom: 40px;
+}
+
+.header__logo {
+  font-family: "Great Vibes Regular";
+  font-size: 1.857rem;
+  color: #fed136;
+  margin-bottom: 20px;
+}
+
+.header__menu {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+  font-family: "Montserrat Regular";
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.header__menu-item {
+  flex-basis: 33%;
+  text-align: center;
+}
+
+.header__menu-item:nth-child(-n+3) {
+  padding-bottom: 10px;
+}
+
+/* ----------------------------------------- */
+
+.header__logo:hover {
+  transform: scale(1.05, 1.05);
+}
+
+.header__menu-item:hover {
+  font-weight: 700;
+  color: #fed136;
+  transform: scale(1.05, 1.05);
+}
+
+.button {
+  border: none;
+  box-shadow: none;
+  display: block;
+  width: 160px;
+  height: 40px;
+  font-family: "Montserrat Bold";
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #fed136;
+  border-radius: 3px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #e6aa29;
+  transform: scale(1.02, 1.02);
+}
+
+.button:focus {
+  outline-width: 0px;
+}
+
+.button:active {
+  transform: scale(0.98, 0.98);
+  box-shadow: none;
+}
+
+.section__greeting-title {
+  font-family: "Noto Serif Bold Italic";
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 5.31%;
+}
+
+.section__greeting-subtitle {
+  font-family: "Montserrat Bold";
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section__title {
+  font-family: "Montserrat Bold";
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 1.86%;
+  text-align: center;
+}
+
+.section__subtitle {
+  font-family: "Noto Serif Bold Italic";
+  font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.section__services {
+  padding-top: 8.57%;
+  padding-bottom: 8.57%;
+}
+
+.section__services-item {
+  max-width: 300px;
+}
+
+.section__services-item:not(:last-child) {
+  margin-bottom: 25px;
+}  
+
+.section__services-list {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.section__services-icon {
+  display: block;
+  width: 74px;
+  height: 74px;
+  border: 3px solid #fed136;
+  border-radius: 50%;
+  margin-bottom: 3%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section__services-icon-ecommerce {
+  background-image: url('../img/icons/Icon-Basket.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.section__services-icon-responsive {
+  background-image: url('../img/icons/Icon-Laptop.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.section__services-icon-security {
+  background-image: url('../img/icons/Icon-Locked.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.section__services-item-name {
+  font-family: "Montserrat Bold";
+  font-size: 1.286rem;
+  color: #000000;
+  margin-bottom: 3%;
+  text-align: center;
+}
+
+.section__services-item-description {
+  text-align: center;
+}
+
+.section__contact {
+  background-color: #222222;
+  padding-top: 7.85%;
+  padding-bottom: 6.57%;
+}
+
+.section__contact .section__title {
+  color: #ffffff;
+}
+
+input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  padding: 18px;
+}
+
+textarea {
+  width: 100%;
+  height: 210px;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  padding: 18px;
+  resize: none;
+}
+
+.section__contact-form > .button {
+  margin-top: 32px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: "Montserrat Bold";
+  font-size: 1rem;
+  color: #bbbbbb;
+  text-transform: uppercase;
+}
+
+input:focus,
+textarea:focus {
+  outline-width: 0px;
+  background-color: #d4d4d4;
+}
+
+input:focus:valid,
+textarea:focus:valid {
+  border: 2px solid #00d400;
+}
+
+input:focus:invalid,
+textarea:focus:invalid {
+  border: 2px solid #ff0000;
+}
+
+
+/* visually-hidden helper */
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

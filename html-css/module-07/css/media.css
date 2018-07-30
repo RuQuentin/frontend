@@ -1,0 +1,146 @@
+@media (min-width: 480px) {
+  
+  .header__navigation {
+    margin-bottom: 14.57%;
+  }
+  
+  .header__menu {;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .header__menu-item {
+    flex-basis: 10%;
+  }
+
+  .header__menu-item:nth-child(-n+3) {
+    padding-bottom: 0px;
+  }
+
+  .section__greeting-title {
+    font-size: 1.6rem;
+  }
+  
+  .section__greeting-subtitle {
+    font-size: 2rem;
+  }
+
+  .section__subtitle {
+    font-size: 1rem;
+  }
+
+  .section__services-item {
+    max-width: 350px;
+  }
+
+}
+
+
+@media (min-width: 768px) {
+
+  .header__navigation {
+    flex-flow: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .header__logo {
+    margin-bottom: 0px;
+  }
+
+  .header__menu {
+    justify-content: space-between;
+    flex-basis: 486px;
+  }
+
+  .button {
+    width: 240px;
+    height: 66px;
+    font-size: 1.286rem;
+  }
+
+  .section__greeting-title {
+    font-size: 2.857rem;
+  }
+  
+  .section__greeting-subtitle {
+    font-size: 3.5rem;
+  }
+
+  .section__title {
+    font-size: 2.857rem;
+  }
+
+  .section__subtitle {
+    font-size: 1.143rem;
+    margin-bottom: 5.71%;
+  }
+
+  .section__services-list {
+    flex-flow: row;
+    justify-content: space-between;
+  }
+
+  .section__services-item {
+    flex-basis: 30%;
+  }
+
+  .section__services-item:not(:last-child) {
+    margin-bottom: 0px;
+  }
+
+  .section__services-icon {
+    margin-bottom: 9%;
+  }
+
+  .section__services-item-name {
+    margin-bottom: 7%;
+  }
+
+  .section__contact-form-fields {
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: ;
+    height: 210px;
+  }
+
+  input {
+    align-self: flex-start;
+  }
+
+  textarea {
+    align-self: flex-end;
+  }
+
+  input,
+  textarea {
+    width: 48.5%;
+    margin-bottom: 0px;
+  }
+
+}
+
+
+
+@media (min-width: 980px) {
+
+  .container {
+    max-width: 980px;
+  }
+
+  .section__greeting-subtitle {
+    font-size: 4.285rem;
+  }
+    
+  .section__contact {
+    background-image: url('../img/map-image.png');
+    background-repeat: no-repeat;
+    background-size: 610px 534px;
+    background-position: bottom 0px right 0px;
+    background-attachment: fixed;
+  }  
+
+}
+
