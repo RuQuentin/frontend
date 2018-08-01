@@ -1,0 +1,275 @@
+/* *,
+*::before,
+*::after {
+  outline: 1px solid red;
+}
+ */
+
+html {
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+img {
+  display: inline-block;
+}
+
+ul {
+  list-style: none;
+}
+
+@font-face {
+  font-family: "Montserrat Bold";
+  src: url('../fonts/montserrat-v12-latin-700.woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto Regular";
+  src: url('../fonts/roboto-v18-latin-regular.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Montserrat Bold";
+  color: #000000;
+  line-height: 1.2;
+}
+
+.container {
+  min-width: 320px;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  color: #ffffff;
+  position: relative;
+  padding-bottom: 140px;
+}
+
+.header::before {
+  display: block;
+  content: '';
+  position: absolute;
+  min-width: 320px;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/header-background.jpg');
+  filter: brightness(70%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+}
+
+.header__navigation {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  padding-top: 20px;
+  margin-bottom: 34px;
+}
+
+.header__menu {
+  margin-bottom: 120px;
+  text-align: center;
+}
+
+.header__menu-item {
+  display: inline-block;
+  text-align: center;
+  width: 90px;
+  height: 36px;
+}
+
+.header__menu-item > a {
+  line-height: 32px;
+}
+
+.header__menu-item:nth-child(2) {
+  border: 2px solid #ffffff;
+  border-radius: 18px;
+}
+
+.header__logo {
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.header__banner-title {
+  max-width: 500px;
+  font-size: 2.143rem;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 18px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header__banner-subtitle {
+  min-width: 230px;
+  font-family: "Roboto Regular";
+  font-size: 1.286rem;
+  text-align: center;
+  margin-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button {
+  display: block;
+  width: 280px;
+  height: 40px;
+  color: #ffffff;
+  border: 2px solid #ff4e50;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header__button {
+  background-color: #ff4e50;
+}
+
+.section__team {
+  padding-top: 72px;
+  padding-bottom: 56px;
+}
+
+.section__title {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.section__team-list {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section__team-item {
+  width: 220px;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.section__team-item:nth-child(1) {
+  order: 0;
+}
+
+.section__team-item:nth-child(2) {
+  order: 2;
+}
+
+.section__team-item:nth-child(3) {
+  order: 1;
+}
+
+.section__team-item:nth-child(4) {
+  order: 3;
+}
+
+.section__team-photo {
+  border-radius: 50%;
+}
+
+.section__team-photo-wrapper {
+  display: inline-block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.interest > .section__team-photo-wrapper::after {
+  content: '';
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
+}
+
+.interest__television > .section__team-photo-wrapper::after {
+  background-color: #ff4e50;
+  background-image: url('../img/icons/icon-television.svg');
+}
+
+.interest__chemistry > .section__team-photo-wrapper::after {
+  background-color: #1cd7ad;
+  background-image: url('../img/icons/icon-chemistry.svg');
+}
+
+.interest__coffee > .section__team-photo-wrapper::after {
+  background-color: #ffa507;
+  background-image: url('../img/icons/icon-coffee.svg');
+}
+
+.interest__message > .section__team-photo-wrapper::after {
+  background-color: #4e73db;
+  background-image: url('../img/icons/icon-message.svg');
+}
+
+.section__team-name {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.section__team-description {
+  font-family: "Roboto Regular";
+  color: #666666;
+}
+
+.section__button {
+  background-color: #ffffff;
+  color: #ff4e50;
+}
+
+
+/* visually-hidden helper */
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
