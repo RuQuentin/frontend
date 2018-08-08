@@ -1,0 +1,378 @@
+@font-face {
+  font-family: "Montserrat Bold";
+  src: url('../fonts/montserrat-v12-latin-700.woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto Regular";
+  src: url('../fonts/roboto-v18-latin-regular.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  min-width: 320px;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+*,
+*::before,
+*::after {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+
+/* -------------------- HEADER -------------------- */
+
+.header {
+  color: #ffffff;
+  padding-top: 20px;
+  padding-bottom: 138px;
+}
+
+.header:before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/header-background.jpg');
+  filter: brightness(50%);
+  background-size: cover;
+  background-position: center;
+}
+
+.header__navigation-wrapper {
+  margin-bottom: 36px;
+}
+
+.header__menu-wrapper {
+  margin-bottom: 118px;
+}
+
+.header__menu {
+  list-style: none;
+  padding-left: 0px;
+  text-align: center;
+}
+
+.header__menu-item {
+  width: 90px;
+  height: 36px;
+  font-family: "Montserrat Bold";
+  font-size: 14px;
+  line-height: 32px;
+}
+
+.header__menu-item:nth-child(2) {
+  border: 2px solid #ffffff;
+  border-radius: 18px;
+}
+
+.header__menu-item:nth-child(2):hover {
+  border-color: #ffa507;
+}
+
+.header__menu-item > a {
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+}
+
+.header__menu-item > a:hover {
+  text-decoration: none;
+  color: #ffa507;
+}
+
+.header__menu-item:nth-child(2):hover > a {
+  color: #ffa507;
+}
+
+.header__logo {
+  display: block;
+  font-family: "Montserrat Bold";
+  font-size: 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header__logo > a {
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.header__logo > a:hover {
+  text-decoration: none;
+  color: #ffa507;
+}
+
+.header__title {
+  font-family: "Montserrat Bold";
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header__subtitle {
+  font-family: "Roboto Regular";
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.button {
+  display: block;
+  width: 280px;
+  height: 40px;
+  font-family: "Montserrat Bold";
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 36px;
+  border: 2px solid #ff4e50;
+  border-radius: 18px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button:hover {
+  transform: scale(1.03, 1.03);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.button:active {
+  transform: scale(1, 1);
+}
+
+.button:focus {
+  outline: 0px;
+}
+
+.header__button {
+  color: #ffffff;
+  background-color: #ff4e50;
+}
+
+
+/* ------------------- MAIN ------------------- */
+
+.partners > .container {
+  padding-top: 72px;
+  padding-bottom: 58px;
+}
+
+.partners__title-wrapper {
+  margin-bottom: 18px;
+}
+
+.partners__title {
+  font-family: "Montserrat Bold";
+  font-size: 22px;
+  text-align: center;
+}
+
+.partners__list-wrapper {
+  margin-bottom: 28px;
+}
+
+.partners__list-item:not(:last-child) {
+  margin-bottom: 28px;
+}
+
+.partners__list-item-photo {
+  position: relative;
+  width: 122px;
+  height: 122px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 22px;
+}
+
+.partners__list-item-photo::before {
+  content: '';
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.partners__hobby-television > .partners__list-item-photo::before {
+  background-color: #ff4e50;
+  background-image: url('../img/icons/icon-television.svg');
+}
+
+.partners__hobby-chemistry > .partners__list-item-photo::before {
+  background-color: #ffa507;
+  background-image: url('../img/icons/icon-chemistry.svg');
+}
+
+.partners__hobby-coffee > .partners__list-item-photo::before {
+  background-color: #1cd7ad;
+  background-image: url('../img/icons/icon-coffee.svg');
+}
+
+.partners__hobby-message > .partners__list-item-photo::before {
+  background-color: #4e73db;
+  background-image: url('../img/icons/icon-message.svg');
+}
+
+.partners__list-item-photo:hover::before {
+  transform: rotate(360deg);
+  transition: 0.5s;
+}
+
+.partners__list-item-photo > img {
+  border-radius: 50%;
+}
+
+.partners__list-item-name {
+  font-family: "Montserrat Bold";
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.partners__list-item-description {
+  font-family: "Roboto Regular";
+  font-size: 14px;
+  color: #666666;
+  text-align: center;
+}
+
+
+
+
+.partners__list {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.partners__button {
+  background-color: transparent;
+  color: #ff4e50;
+}
+
+
+/* visually-hidden helper */
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+
+/* ------------------------ MEDIA ------------------------ */
+
+
+@media (min-width: 576px) {
+
+  .header {
+    padding-top: 38px;
+    padding-bottom: 200px;
+  }
+  
+  .header__navigation-wrapper {
+    margin-bottom: 100px;
+  }
+  
+  .header__navigation > .row {
+    align-items: center;
+  }
+
+  .header__menu-wrapper {
+    margin-bottom: 0px;
+  }
+
+  .header__title {
+    font-size: 44px;
+    margin-bottom: 46px;
+  }
+
+  .header__subtitle {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  .partners__title-wrapper {
+    margin-bottom: 30px;
+  }
+
+}
+
+
+
+@media (min-width: 768px) {
+
+  .header {
+    padding-top: 38px;
+    padding-bottom: 234px;
+  }
+
+  .header__navigation-wrapper {
+    margin-bottom: 150px;
+  }
+
+  .header__title {
+    font-size: 52px;
+  }
+
+  .header__subtitle {
+    font-size: 24px;
+  }
+
+  .partners > .container {
+    padding-top: 74px;
+    padding-bottom: 40px;
+  }
+
+  .partners__title-wrapper {
+    margin-bottom: 36px;
+  }
+}
+
+
+
+@media (min-width: 992px) {
+
+  .header__menu {
+    text-align: right;
+  }
+
+  .header__logo {
+    text-align: left;
+  }
+
+  .partners > .container {
+    padding-bottom: 74px;
+  }
+
+}

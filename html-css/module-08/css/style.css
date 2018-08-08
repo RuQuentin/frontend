@@ -57,6 +57,7 @@ body {
 
 .container {
   min-width: 320px;
+  max-width: 960px;
   padding-left: 5%;
   padding-right: 5%;
   margin-left: auto;
