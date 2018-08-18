@@ -1,9 +1,24 @@
 @media
 only screen and (        min-device-pixel-ratio: 2),
+only screen and (                -webkit-min-device-pixel-ratio: 2),
+only screen and (                -o-min-device-pixel-ratio: 2/1),
 only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
 
   .banner {
+    background-image: -webkit-gradient(linear,
+                                    left bottom, left top,
+                                    from(rgba(252, 227, 138, 0.9)),
+                                    to(rgba(243, 129, 129, 0.9))),
+                                      url('../img/2x/header-picture@2x.jpg');
+    background-image: -webkit-linear-gradient(bottom,
+                                    rgba(252, 227, 138, 0.9),
+                                    rgba(243, 129, 129, 0.9)),
+                                      url('../img/2x/header-picture@2x.jpg');
+    background-image: -o-linear-gradient(bottom,
+                                    rgba(252, 227, 138, 0.9),
+                                    rgba(243, 129, 129, 0.9)),
+                                      url('../img/2x/header-picture@2x.jpg');
     background-image: linear-gradient(0deg,
                                     rgba(252, 227, 138, 0.9),
                                     rgba(243, 129, 129, 0.9)),
@@ -16,8 +31,13 @@ only screen and (                min-resolution: 2dppx) {
 @media (min-width: 480px) {
 
   .navigation {
-    flex-flow: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .logo {
@@ -25,9 +45,15 @@ only screen and (                min-resolution: 2dppx) {
   }
 
   .main-menu {
-    flex-flow: row;
-    justify-content: space-around;
-    align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     width: 100%;
   }
 
@@ -72,8 +98,13 @@ only screen and (                min-resolution: 2dppx) {
 @media (min-width: 768px) {
 
   .navigation {
-    flex-flow: row;
-    align-items: baseline;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
   }
 
   .logo {
@@ -81,8 +112,11 @@ only screen and (                min-resolution: 2dppx) {
   }
 
   .main-menu {
-    justify-content: space-between;
-    flex-basis: 70%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%;
     max-width: 620px;
   }
 
@@ -95,7 +129,9 @@ only screen and (                min-resolution: 2dppx) {
   }
 
   .services {
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   
   .services__item {
@@ -107,7 +143,9 @@ only screen and (                min-resolution: 2dppx) {
   }
 
   .team {
-    justify-content: space-evenly;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
   }
 
   .team__item {
@@ -115,14 +153,23 @@ only screen and (                min-resolution: 2dppx) {
   }
 
   .footer-inner {
-    flex-flow: row;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .subscribtion-form {
     margin-bottom: 0px;
-    order: 1;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
   }
 
 }
