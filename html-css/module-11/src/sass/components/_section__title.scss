@@ -1,0 +1,13 @@
+.section__title {
+  font-family: $font-title;
+  font-size: $font-size-section-title * 0.9;
+  line-height: $line-height-section-title;
+  color: map-get($colors, dark-grey);
+  text-align: center;
+
+  margin-bottom: 2.1666%;
+
+    @media (min-width: 480px) {
+      font-size: $font-size-section-title * 1.0;
+    }
+}

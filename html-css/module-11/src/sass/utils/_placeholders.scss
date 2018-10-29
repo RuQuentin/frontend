@@ -1,0 +1,20 @@
+%link {
+  text-decoration: none;
+}
+
+%list {
+  list-style: none;
+}
+
+%image {
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+}
+
+%button {
+  font-family: $font-button;
+  font-size: $font-size-button;
+  text-transform: uppercase;
+  cursor: pointer;
+}

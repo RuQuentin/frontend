@@ -1,0 +1,21 @@
+.nav-logo {
+  @extend %link;
+  font-family: $font-logo;
+  font-size: $font-size-logo;
+  line-height: $line-height-logo;
+  color: map-get($colors, white);
+  text-align: center;
+
+  &:hover,
+  &:focus {
+    color: map-get($colors, yellow);
+  }
+
+  @media (min-width: 480px) {
+    margin-bottom: 10px;
+  }
+
+  @media (min-width: 768px) {
+    margin-bottom: 0px;
+  }
+}

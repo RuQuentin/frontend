@@ -1,0 +1,14 @@
+.team__photo {
+  position: relative;
+}
+
+.team__photo-container {
+  
+  &:focus,
+  &:hover {
+    
+    .team__photo {
+      @extend %socials-animation;
+    }
+  }
+}

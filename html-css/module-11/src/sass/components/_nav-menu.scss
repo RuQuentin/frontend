@@ -1,0 +1,56 @@
+.nav-menu {
+  @extend %list;
+  font-family: $font-navigation;
+  font-size: $font-size-navigation;
+  line-height: $line-height-navigation;
+  color: map-get($colors, white);
+  text-transform: uppercase;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @media (min-width: 480px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 620px;
+    flex-grow: 0.5;
+  }
+}
+
+.nav-menu__item {
+  margin-bottom: 10px;
+}
+
+.nav-menu__icon {
+  display: inline;
+  width: 25px;
+  height: 13px; 
+  fill: map-get($colors, white);
+}
+
+.nav-menu__link {
+  @extend %link;
+  color: map-get($colors, white);
+    
+  &:focus,
+  &:active {
+    color: map-get($colors, yellow);
+    padding-right: 10px;
+    border-right: 3px solid map-get($colors, yellow);
+
+    @media (min-width: 480px) {
+      padding-right: 0px;
+      padding-bottom: 6px;
+      border-right: none;
+      border-bottom: 3px solid map-get($colors, yellow);
+    }
+
+    .nav-menu__icon {
+      fill: map-get($colors, yellow);
+    }
+  }
+}

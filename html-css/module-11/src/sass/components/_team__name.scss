@@ -1,0 +1,9 @@
+.team__name {
+  font-family: $font-regular-main;
+  font-size: $font-size-regular-main;
+  line-height: $line-height-regular-main;
+  color: map-get($colors, dark-grey);
+  text-transform: uppercase;
+  
+  margin-bottom: 14px;
+}

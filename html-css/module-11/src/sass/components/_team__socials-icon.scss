@@ -1,0 +1,18 @@
+.team__socials-icon {
+  width: 26px;
+  height: 26px;
+
+  fill: map-get($colors, pink);
+}
+
+
+.team__socials-item {
+  
+  &:focus,
+  &:hover {
+  
+    .team__socials-icon {
+      fill: map-get($colors, white);
+    }
+  }
+}

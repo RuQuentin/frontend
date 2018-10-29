@@ -1,0 +1,17 @@
+.team__list {
+  @extend %list;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  @media (min-width: 960px) {
+    justify-content: space-between;
+  }
+}

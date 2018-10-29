@@ -1,0 +1,21 @@
+.subscribe-form {
+  font-size: 0px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  flex-basis: 100%;
+
+  margin-bottom: 20px;
+  
+  @media (min-width: 480px) {
+    flex-wrap: nowrap;
+    flex-basis: auto;
+    width: 380px;
+  }
+
+  @media (min-width: 768px) {
+    margin-bottom: 0px;
+  }
+}

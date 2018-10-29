@@ -1,0 +1,14 @@
+.team__socials-item {
+  margin-right: 1px;
+  
+  background-color: map-get($colors, yellow);
+
+  &:nth-last-child(1) {
+    margin-right: 0px;
+  }
+
+  &:focus,
+  &:hover {
+    background-color: map-get($colors, pink);
+  }
+}

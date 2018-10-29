@@ -1,0 +1,10 @@
+.team__photo-container {
+  position: relative;
+  background-color: map-get($colors, light-green);
+
+  margin-bottom: 5%;
+
+  @media (min-width: 960px) {
+    margin-bottom: 8.4211%;
+  }
+}

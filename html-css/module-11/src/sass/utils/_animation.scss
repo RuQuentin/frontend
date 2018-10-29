@@ -1,0 +1,9 @@
+%button-animation {
+  transform: scale(0.98, 0.98);
+  transition: 0.1s ease-in;
+}
+
+%socials-animation {
+  transform: translate(-10px, -10px);
+  transition: 0.1s ease-in;
+}

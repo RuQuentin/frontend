@@ -1,0 +1,8 @@
+.copyright {
+  font-family: $font-regular-main;
+  font-size: $font-size-regular-main;
+  line-height: $line-height-regular-main;
+  color: map-get($colors, dark-grey);
+  
+/*   margin-bottom: 10px; */
+}

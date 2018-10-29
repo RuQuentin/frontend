@@ -1,0 +1,12 @@
+.services__item-name {
+  font-family: $font-regular-main;
+  font-size: $font-size-regular-main;
+  color: map-get($colors, dark-grey);
+  text-transform: uppercase;
+  
+  margin-bottom: 4px;
+
+  @media (min-width: 1200px) {
+    margin-bottom: 18px;
+  }
+}

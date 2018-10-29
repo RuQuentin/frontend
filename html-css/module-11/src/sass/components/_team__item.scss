@@ -1,0 +1,17 @@
+.team__item {
+  text-align: center;
+  margin-bottom: 40px;
+
+  &:nth-last-child(1) {
+    margin-bottom: 0px;
+  }
+
+  @media (min-width: 768px) {
+    flex-basis: 45%;
+  }
+
+  @media (min-width: 960px) {
+    flex-basis: 31.75%;
+    margin-bottom: 0px;
+  }
+}

@@ -1,0 +1,4 @@
+.copyright__link {
+  @extend %link;
+  color: map-get($colors, pink);
+}

@@ -1,0 +1,11 @@
+.services__icon {
+  width: 32px;
+  height: 32px;
+
+  position: absolute;
+  top: 6px;
+  left: 0px;
+  transform: translate(50%, 0);
+
+  fill: map-get($colors, light-green);
+}

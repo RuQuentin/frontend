@@ -1,0 +1,25 @@
+.banner__title {
+  font-family: $font-title;
+  font-size: $font-size-banner-title * 0.3;
+  line-height: $line-height-banner-title;
+  color: map-get($colors, white);
+  margin-bottom: 4.75%;
+  text-align: center;
+
+
+  @media (min-width: 480px) {
+    font-size: $font-size-banner-title * 0.5;
+  }
+
+  @media (min-width: 768px) {
+    font-size: $font-size-banner-title * 0.7;
+  }
+
+  @media (min-width: 960px) {
+    font-size: $font-size-banner-title * 0.9;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: $font-size-banner-title * 1;
+  }
+}
