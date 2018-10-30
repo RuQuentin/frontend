@@ -7,11 +7,11 @@
   }
 
   @media (min-width: 768px) {
-    flex-basis: 45%;
+    max-width: 45%;
   }
 
   @media (min-width: 960px) {
-    flex-basis: 31.75%;
+    max-width: 31.75%;
     margin-bottom: 0px;
   }
 }

@@ -9,4 +9,20 @@
   background-size: cover, cover;
 
   text-align: center;
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+
+    background: linear-gradient( 0deg, transparentize(map-get($colors, yellow), 0.1) 0%,
+                                      transparentize(map-get($colors, pink), 0.1)  100%),
+                url("../images/header-picture@2x.jpg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-size: cover, cover;
+  }
 }

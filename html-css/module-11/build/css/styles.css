@@ -713,6 +713,7 @@ input[type="radio"].visually-hidden {
 }
 
 .team__photo {
+  display: block;
   position: relative;
 }
 
@@ -995,7 +996,7 @@ input[type="radio"].visually-hidden {
   }
 
   .team__item {
-    flex-basis: 45%;
+    max-width: 45%;
   }
 
   .footer-wrapper {
@@ -1027,7 +1028,7 @@ input[type="radio"].visually-hidden {
   }
 
   .team__item {
-    flex-basis: 31.75%;
+    max-width: 31.75%;
     margin-bottom: 0px;
   }
 
@@ -1056,5 +1057,14 @@ input[type="radio"].visually-hidden {
 
   .services__item-name {
     margin-bottom: 18px;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .banner {
+    background: linear-gradient(0deg, rgba(252, 227, 138, 0.9) 0%, rgba(243, 129, 129, 0.9) 100%), url("../images/header-picture@2x.jpg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-size: cover, cover;
   }
 }
