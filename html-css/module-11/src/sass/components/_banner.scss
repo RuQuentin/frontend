@@ -1,11 +1,12 @@
 .banner {
+/*   @extend %image; */
   background: linear-gradient( 0deg, transparentize(map-get($colors, yellow), 0.1) 0%,
                                     transparentize(map-get($colors, pink), 0.1)  100%),
               url("../images/header-picture.jpg");
 
   background-repeat: no-repeat, no-repeat;
-  background-position: bottom, center;
-  background-size: contain, cover;
+  background-position: center, center;
+  background-size: cover, cover;
 
   text-align: center;
 }
