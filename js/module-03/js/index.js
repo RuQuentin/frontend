@@ -56,6 +56,14 @@ const repeatLoginRequest = logins => {
   } while (result === false);
 };
 
+/* const repeatLoginRequest = logins => {
+  let newLogin;
+  let result;
+  newLogin = getUserInput();
+  result = addLogin(logins, newLogin);
+  if (result === false) repeatLoginRequest(logins);
+}; */
+
 repeatLoginRequest(loginsBase);
 
 console.log(loginsBase);
