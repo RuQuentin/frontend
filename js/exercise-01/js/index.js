@@ -52,6 +52,6 @@ const findMaxMin = function(array, typeOfComparison) {
 const testMin = findMaxMin(userNumbers, findMin);
 const testMax = findMaxMin(userNumbers, findMax);
 
-console.log('Исходные значения ' + userArray);
-console.log('Минимальное число ' + testMin);
-console.log('Максимальное число ' + testMax);
+alert(`Исходные значения ${userArray}
+Минимальное число ${testMin}
+Максимальное число ${testMax}`);
