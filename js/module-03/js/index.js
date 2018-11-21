@@ -8,17 +8,17 @@ const getUserInput = () => {
 };
 
 const checkIsLoginNull = login => {
-  let checkResult = login === null ? true : false;
+  let checkResult = login === null;
   return checkResult;
 };
 
 const checkLoginValidity = login => {
-  let checkResult = login.length >= 4 && login.length <= 16 ? true : false;
+  let checkResult = login.length >= 4 && login.length <= 16;
   return checkResult;
 };
 
 const checkIsLoginExists = (logins, login) => {
-  let checkResult = logins.includes(login) ? true : false;
+  let checkResult = logins.includes(login);
   return checkResult;
 };
 
@@ -27,24 +27,24 @@ const addLoginToBase = (logins, login) => {
 };
 
 const addLogin = (logins, login) => {
-  if (!checkIsLoginNull(login)) {
-    if (checkLoginValidity(login)) {
-      if (!checkIsLoginExists(logins, login)) {
-        addLoginToBase(logins, login);
-        alert('Логин успешно добавлен!');
-        return true;
-      } else {
-        alert('Такой логин уже используется!');
-        return false;
-      }
-    } else {
-      alert('Ошибка! Логин должен быть от 4 до 16 символов');
-      return false;
-    }
-  } else {
+  if (checkIsLoginNull(login)) {
     alert('Вы отменили регистрацию. Заходите в другой раз...');
     return true;
   }
+
+  if (!checkLoginValidity(login)) {
+    alert('Ошибка! Логин должен быть от 4 до 16 символов');
+    return false;
+  }
+
+  if (checkIsLoginExists(logins, login)) {
+    alert('Такой логин уже используется!');
+    return false;
+  }
+
+  addLoginToBase(logins, login);
+  alert('Логин успешно добавлен!');
+  return true;
 };
 
 const repeatLoginRequest = logins => {
