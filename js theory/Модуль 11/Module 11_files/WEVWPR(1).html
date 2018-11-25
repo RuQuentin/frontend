@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)https://s.codepen.io/goit-fe-adv/fullembedgrid/WEVWPR?type=embed&animations=run -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111">
+  <title>CodePen - module-09-tmpl-render</title>
+  
+  
+  
+  <link rel="stylesheet" href="./bootstrap.min.css">
+
+      <style>
+      body {
+  padding: 1rem;
+}
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no">
+
+  <div id="menu-container"><div class="menu">
+    <h3 class="menu-title">Eat it createElement, templates rule!</h3>
+    <ul class="menu-list">
+        <li class="menu-item">Handlebars</li>
+        <li class="menu-item">LoDash</li>
+        <li class="menu-item">Pug</li>
+        <li class="menu-item">EJS</li>
+    </ul>
+  </div></div>
+
+<script type="hbs/template" id="menu">
+  <div class="menu">
+    <h3 class="menu-title">{{title}}</h3>
+    <ul class="menu-list">
+      {{#each items}}
+        <li class="menu-item">{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</script>
+    <script src="./stopExecutionOnTimeout-41c52890748cd7143004e05d3c5f786c66b19939c4500ce446314d1748483e13.js.Без названия"></script>
+
+  <script src="./handlebars.min.js.Без названия"></script>
+
+  
+
+    <script>
+      var menuData = {
+  title: 'Eat it createElement, templates rule!',
+  items: ['Handlebars', 'LoDash', 'Pug', 'EJS'] };
+
+
+var source = document.querySelector('#menu').innerHTML.trim();
+
+var template = Handlebars.compile(source);
+
+/*
+                                             Создадим переменную markup, в которую запишем 
+                                             результат работы функции-шаблона template
+                                           */
+var markup = template(menuData);
+
+console.log(markup); // магия
+/*
+  Пример выше похож на операцию «поиск-и-замена»: шаблон просто 
+  заменил {{title}} на значение свойства menuData.title. 
+  После чего в результат попал сначала текст <ul>, 
+  потом выполнился {{#each items}}, который последовательно 
+  сгенерировал элементы списка, и затем список был закрыт </ul>.
+*/
+
+/*
+     В js выберем контейнер по id, после чего используя 
+     свойство innerHTML присвоим туда нашу строку.
+   */
+var container = document.querySelector('#menu-container');
+container.innerHTML = markup;
+      //# sourceURL=pen.js
+    </script>
+
+
+
+  
+  
+
+
+
+
+ </body></html>

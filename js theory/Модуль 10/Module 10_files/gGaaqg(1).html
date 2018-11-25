@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)https://s.codepen.io/goit-fe-adv/fullembedgrid/gGaaqg?type=embed&animations=run -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111">
+  <title>CodePen - module-11-simple-fetch</title>
+  
+  
+  
+  <link rel="stylesheet" href="./materialize.min.css">
+
+      <style>
+      body {
+  padding: 1rem;
+  text-align: center;
+}
+
+p {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no">
+
+  <button id="js-btn" class="btn">CLICK ME!</button>
+<p id="js-output">async data will be shown here</p>
+    <script src="./stopExecutionOnTimeout-41c52890748cd7143004e05d3c5f786c66b19939c4500ce446314d1748483e13.js.Без названия"></script>
+
+  
+  
+
+    <script>
+      var btn = document.querySelector("#js-btn");
+var output = document.querySelector("#js-output");
+
+var onClick = function onClick() {
+  // по клику сделаем fetch к сервису хранения простых JSON конструкций.
+  // По указаному URL лежит JSON с данными о пользователе
+  fetch("https://api.myjson.com/bins/k9i31")
+  // fetch вернет промис, у которого есть метод then
+  .then(function (response) {
+    // в первом then всегда проверяется состояния ответа,
+    // если поле ok обьекта response правдиво (truthy) то возвращаем response.json() - сами данные,
+    // которые можно будет использовать в следующем then
+    if (response.ok) return response.json();
+
+    // если if не выполнился то "кидаем" ошибку
+    throw new Error("Error fetching data");
+  }).
+  then(function (data) {
+    // во втором then доступны данные которые мы вернули из первого then, результат responce.json()
+    console.log("data inside then: ", data); // {name: "Mango", age: 2, mood: "happy"}
+
+    // используем JSON.stringify для преобразования обьекта в строку,
+    // чтобы повесить результат как текстовый контент в абзац
+    output.textContent = JSON.stringify(data);
+  }).
+  catch(function (error) {
+    // catch обрабатывает возможную ошибку запроса
+    console.error("Error: ", error);
+  });
+};
+
+btn.addEventListener("click", onClick);
+      //# sourceURL=pen.js
+    </script>
+
+
+
+  
+  
+
+
+
+
+ </body></html>

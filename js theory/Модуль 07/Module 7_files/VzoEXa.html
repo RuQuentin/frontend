@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)https://s.codepen.io/goit-fe-adv/fullembedgrid/VzoEXa?type=embed&animations=run -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111">
+  <title>CodePen - module-07-append/prepend</title>
+  
+  
+  
+  <link rel="stylesheet" href="./bootstrap.min.css">
+
+  
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no">
+
+  <div class="container">
+  <h2>Список клиентов</h2><ul class="list"><li>Ajax</li>
+    <li>Mango</li>
+  <li>Poly</li></ul><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum tenetur assumenda fugiat maxime, soluta aspernatur quasi nihil in asperiores ad distinctio illo et debitis error iure voluptate numquam maiores nisi!</p>
+</div>
+    <script src="./stopExecutionOnTimeout-41c52890748cd7143004e05d3c5f786c66b19939c4500ce446314d1748483e13.js.Без названия"></script>
+
+  
+  
+
+    <script>
+      var list = document.querySelector('.list');
+
+var item = document.createElement('li');
+item.textContent = 'Poly';
+list.append(item);
+
+var clone = item.cloneNode(true);
+clone.textContent = 'Ajax';
+list.prepend(clone);
+
+var title = document.createElement('h2');
+title.textContent = 'Список клиентов';
+list.before(title);
+
+var text = document.createElement('p');
+text.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum tenetur assumenda fugiat maxime, soluta aspernatur quasi nihil in asperiores ad distinctio illo et debitis error iure voluptate numquam maiores nisi!';
+list.after(text);
+      //# sourceURL=pen.js
+    </script>
+
+
+
+  
+  
+
+
+
+
+ </body></html>

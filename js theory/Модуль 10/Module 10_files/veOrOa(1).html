@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)https://s.codepen.io/goit-fe-adv/fullembedgrid/veOrOa?type=embed&animations=run -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111">
+  <title>CodePen - module-11-async-call-mistake</title>
+  
+  
+  
+  <link rel="stylesheet" href="./materialize.min.css">
+
+      <style>
+      body {
+  padding: 1rem;
+  text-align: center;
+}
+
+p {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no">
+
+  <button id="js-btn" class="btn">CLICK ME!</button>
+<p id="js-output">async data will be shown here</p>
+    <script src="./stopExecutionOnTimeout-41c52890748cd7143004e05d3c5f786c66b19939c4500ce446314d1748483e13.js.Без названия"></script>
+
+  
+  
+
+    <script>
+      var btn = document.querySelector("#js-btn");
+var output = document.querySelector("#js-output");
+
+// Рассмотрим классическую ошибку при работе с асинхронным запросом
+// Начинающий разработчик пытается записать "результат fetch" во внешнюю пременную и использовать ее
+// ниже по коду сразу за fetch
+var globalVariable = ""; // пустая строка
+
+var onClick = function onClick() {
+  // Cделаем fetch к сервису
+  fetch("https://api.myjson.com/bins/k9i31").
+  then(function (response) {
+    if (response.ok) return response.json();
+    throw new Error("Error fetching data");
+  }).
+  then(function (data) {
+    console.log("data inside then: ", data); // {name: "Mango", age: 2, mood: "happy"}
+
+    // Запишем результат в глобальную переменную
+    globalVariable = data;
+    // Тут все ок, данные есть в переменной
+    console.log("globalVariable inside fetch: ", globalVariable);
+
+    output.textContent = JSON.stringify(data);
+  }).
+  catch(function (error) {
+    console.error("Error: ", error);
+  });
+
+  // Вне метода then данных нет, так как эта строка кода выполнится раньше чем придет ответ от сервера
+  // В это время переменная globalVariable еще содержит пустую строку
+  // Данные промиса доступны только в методе then самого промиса
+  console.log("globalVariable outside fetch: ", globalVariable);
+};
+
+btn.addEventListener("click", onClick);
+      //# sourceURL=pen.js
+    </script>
+
+
+
+  
+  
+
+
+
+
+ </body></html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)https://s.codepen.io/goit-fe-adv/fullembedgrid/JrYGVE?type=embed&animations=run -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111">
+  <title>CodePen - module-11-privat-api</title>
+  
+  
+  
+  <link rel="stylesheet" href="./materialize.min.css">
+
+      <style>
+      body {
+  padding: 1rem;
+}
+
+.btn {
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+}
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no">
+
+  <table class="centered bordered highlight">
+  <thead>
+    <tr>
+      <th>Валюта</th>
+      <th>Покупка</th>
+      <th>Продажа</th>
+    </tr>
+  </thead>
+  <tbody id="js-tbody"></tbody>
+</table>
+
+<button id="js-btn" class="btn">Получить</button>
+
+<!-- Шаблон одной строки для tbody -->
+<script type="text/template" id="table-row">
+  <tr scope="row">
+    <td><%- ccy%></td>
+    <td><%- buy%></td>
+    <td><%- sale%></td>
+  </tr>
+</script>
+    <script src="./stopExecutionOnTimeout-41c52890748cd7143004e05d3c5f786c66b19939c4500ce446314d1748483e13.js.Без названия"></script>
+
+  <script src="./lodash.min.js.Без названия"></script>
+
+  
+
+    <script>
+       // Globs
+var btn = document.querySelector("#js-btn");
+var tBody = document.querySelector("#js-tbody");
+var htmlTpl = document.querySelector("#table-row").textContent.trim();
+var compiled = _.template(htmlTpl);
+
+// Получает массив объектов валют и используя LoDash шаблон рендерит результат
+var updateView = function updateView(currencies) {
+  var htmlString = "";
+
+  currencies.forEach(function (currency) {
+    htmlString += compiled(currency);
+  });
+
+  tBody.innerHTML = htmlString;
+};
+
+// Напишем функцию которая будет возвращать результат fetch (обещание) к указаному url
+var getCurrencyRates = function getCurrencyRates() {return (
+    fetch("https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11").
+    then(function (response) {
+      if (response.ok) return response.json();
+      throw new Error("Error fetching data");
+    }).
+    catch(function (err) {
+      console.error("Error: ", err);
+    }));};
+
+// При клике вызовем getCurrencyRates и после того как обещание выполнятся, внутри then отрендерим результат по шаблону
+var onClick = function onClick() {
+  getCurrencyRates().then(function (currencies) {
+    updateView(currencies);
+  });
+};
+
+btn.addEventListener("click", onClick);
+      //# sourceURL=pen.js
+    </script>
+
+
+
+  
+  
+
+
+
+
+ </body></html>

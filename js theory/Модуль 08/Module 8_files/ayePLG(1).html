@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)https://s.codepen.io/goit-fe-adv/fullembedgrid/ayePLG?type=embed&animations=run -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111">
+  <title>CodePen - module-08-addListener</title>
+  
+  
+  
+  <link rel="stylesheet" href="./materialize.min.css">
+
+      <style>
+      body {
+  padding: 1rem;
+  text-align: center;
+}
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no">
+
+  <button id="btn" class="btn">SINGLE CALLBACK</button>
+<button id="multiple" class="btn">MULTIPLE CALLBACKS</button>
+    <script src="./stopExecutionOnTimeout-41c52890748cd7143004e05d3c5f786c66b19939c4500ce446314d1748483e13.js.Без названия"></script>
+
+  
+  
+
+    <script>
+      var button = document.querySelector('#btn');
+
+// В ES5 была такая запись коллбек функции для обработчика
+// button.addEventListener('click', function() {
+//   alert('CLICK!');
+// });
+
+// В ES6 можно использовать стрелочную функцию
+// button.addEventListener('click', () => {
+//   alert('CLICK!');
+// });
+
+// Для обработчика события можно (и желательно) использовать отдельную функцию, ссылку на которую передаем вторым аргументом в addEventListener
+var onClick = function onClick() {return alert('CLICK!');};
+button.addEventListener('click', onClick);
+
+
+//====================================
+// Можно вешать более одного обработчика на элемент, даже на одно и тоже событие
+var multiBtn = document.querySelector('#multiple');
+
+var firstCallback = function firstCallback() {return alert('First callback!');};
+var secondCallback = function secondCallback() {return alert('Second callback!');};
+var thirdCallback = function thirdCallback() {return alert('Third callback!');};
+
+multiBtn.addEventListener('click', firstCallback);
+multiBtn.addEventListener('click', secondCallback);
+multiBtn.addEventListener('click', thirdCallback);
+      //# sourceURL=pen.js
+    </script>
+
+
+
+  
+  
+
+
+
+
+ </body></html>

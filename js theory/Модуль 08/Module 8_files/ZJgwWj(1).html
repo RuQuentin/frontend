@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)https://s.codepen.io/goit-fe-adv/fullembedgrid/ZJgwWj?type=embed&animations=run -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111">
+  <title>CodePen - module-08-bubbling</title>
+  
+  
+  
+  <link rel="stylesheet" href="./materialize.min.css">
+
+      <style>
+      #parent, #child, #inner-child {
+  margin: 1rem;
+  padding: 0.25rem;
+  outline: 1px solid #333;
+}
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no">
+
+  <div id="parent">
+  PARENT
+  <div id="child">
+    CHILD
+    <div id="inner-child">INNER-CHILD</div>
+  </div>
+</div>
+    <script src="./stopExecutionOnTimeout-41c52890748cd7143004e05d3c5f786c66b19939c4500ce446314d1748483e13.js.Без названия"></script>
+
+  
+  
+
+    <script>
+      var parent = document.querySelector('#parent');
+var child = document.querySelector('#child');
+var innerChild = document.querySelector('#inner-child');
+
+var parentHandler = function parentHandler() {return alert('PARENT!');};
+var childHandler = function childHandler() {return alert('CHILD!');};
+var innerChildHandler = function innerChildHandler() {return alert('INNER CHILD!');};
+
+parent.addEventListener('click', parentHandler);
+child.addEventListener('click', childHandler);
+innerChild.addEventListener('click', innerChildHandler);
+      //# sourceURL=pen.js
+    </script>
+
+
+
+  
+  
+
+
+
+
+ </body></html>
