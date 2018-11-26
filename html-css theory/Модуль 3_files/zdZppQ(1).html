@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)https://s.codepen.io/GoIT-fe/fullembedgrid/zdZppQ?type=embed&animations=stop-after-5 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111">
+  <title>CodePen - module-3-example-text</title>
+  
+  
+  
+  
+      <style>
+      /*Задание CSS-правил для тегов*/
+body {
+  background: #ffffff;
+  color: #212121;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+a {
+  font-size: 8px;
+}
+
+p {
+  text-indent: 25px;
+}
+
+i {
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: square;
+}
+
+/*Задание CSS-правил для для классов*/
+p:first-letter {
+  font-size: 36px;
+  color: #e91e63;
+}
+
+.special {
+  font-style: italic;
+}
+
+.sup {
+  vertical-align: super;
+}
+
+    </style>
+
+  <style>*, *::before, *::after { animation-play-state: paused !important; }</style><script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+    <script>
+    (function() {
+      /*
+      * Capture all errors for this pen
+      **/
+      window.onerror = function(/* message, file, line */) {
+        return true;
+      };
+
+      /*
+      * Capture and kill Web Audio and Speech
+      */
+      if (typeof (AudioContext) != "undefined" || typeof (webkitAudioContext) != "undefined") {
+        AudioContext = function() {
+          return false;
+        };
+
+        webkitAudioContext = function() {
+          return false;
+        };
+      }
+
+      if (typeof (mozAudioContext) != "undefined") {
+        mozAudioContext = function() {
+          return false;
+        };
+      }
+
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis = {};
+      }
+      if ("speak" in speechSynthesis) {
+        speechSynthesis.speak = function() {
+          return false;
+        };
+      }
+
+      // Kill the browser asking for access to the video cam or audio
+      navigator.getUserMedia = function() {
+      };
+      navigator.mozGetUserMedia = function() {
+      };
+      navigator.webkitGetUserMedia = function() {
+      };
+      navigator.mediaDevices.getUserMedia = function() {
+      };
+
+      
+      /**
+      * Capture and kill animations after X number of seconds
+      **/
+      var __animationDuration = 4000;
+      var __animationsTimedOut = false;
+      var __animationRequests = [];
+      var __requestAnimationFrame = false;
+      var __cancelAnimationFrame = false;
+      var x, i;
+
+      var vendorsReqestAnimationFrame = [
+        "requestAnimationFrame",
+        "mozRequestAnimationFrame",
+        "webkitRequestAnimationFrame"
+      ];
+
+      // find the browsers requestAnimationFrame and cancelAnimationFrame
+      for (x = 0; x < vendorsReqestAnimationFrame.length; x++) {
+        if (!__requestAnimationFrame) {
+          __requestAnimationFrame = window[vendorsReqestAnimationFrame[x]
+          ];
+        }
+      }
+
+      __cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+
+      // Wrap the requestAnimationFrame so we can stop it in the future
+      function __reqFrame(callback, element) {
+        // after the timeout we no longer take requests
+        var timerID;
+        if (__animationsTimedOut) {
+          return 0;
+        } else {
+          timerID = __requestAnimationFrame(callback, element);
+          __animationRequests.push(timerID);
+
+          return timerID;
+        }
+      }
+
+      for (x = 0; x < vendorsReqestAnimationFrame.length; x++) {
+        window[vendorsReqestAnimationFrame[x]] = __reqFrame;
+      }
+
+      // Cancel the animations after expiration
+      setTimeout(function() {
+        for (i = 0; i < __animationRequests.length; i++) {
+          __cancelAnimationFrame(__animationRequests[i]);
+        }
+
+        var ss = window.document.createElement("style");
+        ss.textContent = "*, *::before, *::after { animation-play-state: paused !important; }";
+        var ref = window.document.getElementsByTagName("script")[0];
+        ref.parentNode.insertBefore(ss, ref);
+
+        __animationsTimedOut = true;
+      }, __animationDuration, "push");
+
+      /**
+      * Capture setInterval and setTimeout to kill after X number of seconds
+      **/
+      window.setInterval = (function(oldSetInterval) {
+        var registered = [];
+
+        function f(a,b) {
+          // check if the time has expired,
+          // after __animationDuration expires don't take anymore setIntervals
+          if (this.timedOut) {
+            return 0;
+          } else {
+            return registered[ registered.length ] = oldSetInterval(a,b);
+          }
+        }
+
+        f.clearAll = function() {
+          var r;
+
+          while (r = registered.pop()) {
+            clearInterval( r );
+          }
+
+          this.timedOut = true;
+        };
+
+        f.timedOut = false;
+
+        return f;
+      }(window.setInterval));
+
+      window.setTimeout = (function(oldSetTimeout) {
+        var registered = [];
+
+        // because some of our timeouts may time out afterwards
+        // we want to make sure they know the secret sauce to still use
+        // setTimeout after the time has expired, thats why we have a
+        // third param
+        function f(a, b, push) {
+          // check if the time has expired,
+          // after __animationDuration expires don't take anymore requests
+          if (this.timedOut && typeof(push) == "undefined") {
+            return 0;
+          } else {
+            // If push is there, never clear that interval
+            // so never add it to the registry
+            if (push) {
+              return oldSetTimeout(a,b);
+            } else {
+              return registered[ registered.length ] = oldSetTimeout(a,b);
+            }
+          }
+        }
+
+        f.clearAll = function() {
+          var r;
+
+          while (r = registered.pop()) {
+            clearTimeout( r );
+          }
+
+          this.timedOut = true;
+        };
+
+        f.timedOut = false;
+
+        return f;
+      }(window.setTimeout));
+
+      setTimeout(function() {
+
+        setTimeout.clearAll();
+        setInterval.clearAll();
+
+        // Stop Web Animations API
+        // Idea from Gregor: https://github.com/CodePen/CodePen-Bug-Reporting-Only/issues/173#issuecomment-203443301
+        // Status as of August 2016:
+        //  Chrome = stops animations
+        //  Safari = doesn't support anyway
+        //  Firefox = doesn't stop them, but probably will someday? Doesn't error
+        if (document.timeline && typeof document.timeline.getAnimations === "function") {
+          document.timeline.getAnimations().map(function(animation) {
+            animation.pause();
+          });
+        }
+    
+      }, __animationDuration, "push");
+
+    }());
+  </script>
+
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" onload="_l=&#39;t&#39;;">
+
+  <article>
+  <h1>Туризм</h1>
+  <p>Туризм — временные выезды (путешествия) людей в другую страну или местность, отличную от места постоянного жительства, на срок от 24 часов до 6 месяцев в течение одного календарного года или с совершением не менее одной ночёвки в развлекательных, оздоровительных,
+    спортивных, гостевых, познавательных, религиозных и иных целях без занятия деятельностью, оплачиваемой из местного источника<a href="https://s.codepen.io/GoIT-fe/fullembedgrid/zdZppQ?type=embed&amp;animations=stop-after-5" class="sup">[1]</a>. Человека, совершающего такое путешествие, называют туристом или путешественником.</p>
+
+  <section>
+    <h2>Проблема определения термина «туризм»</h2>
+    <p>Дать краткое и при этом полное определение понятию «туризм» <span class="special">из-за многообразия выполняемых им функций и большого числа форм проявления,</span> довольно сложно. В процессе развития давались различные толкования этому термину и
+      каждое из них отражает те или иные стороны туризма. Базовыми критериями для определения «туризма» являются :
+    </p>
+    <ul>
+      <li><i>Изменение места:</i> перемещение в место, находящееся за пределами ежедневной среды обитания.</li>
+      <li><i>Пребывание в другом месте:</i> место пребывания не должно быть местом постоянного или длительного проживания (12 и более месяцев).</li>
+      <li><i>Оплата деятельности в посещаемом месте:</i> целью поездки не должно быть осуществление деятельности, оплачиваемой из источника в посещаемом месте или трудовой деятельностью (оплатой труда).</li>
+      <li><i>Современный туризм невозможен без деятельности по производству туристического продукта:</i> специальной одежды, снаряжения, отелей, экскурсионных бюро, транспорта и т. д. Однако в предлагаемых ныне определениях эта деятельность не отражается.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Классификации туризма</h2>
+    <p>Классификаций туризма достаточно много. В первую очередь различают выездной, въездной и внутренний туризм.
+      <b>Выездной туризм</b> — связан с перемещением граждан одной страны за её границы. <b>Внутренний туризм</b> — перемещение туристов внутри одной страны. <b>Въездной туризм</b> — въезд иностранцев на территорию государства. В зависимости от критерия,
+      по которому оценивается путешествие, можно выделить множество классификаций.</p>
+    <ul>
+      <li>Рекреационный туризм</li>
+      <li>медицинский туризм</li>
+      <li>оздоровительный туризм</li>
+      <li>познавательный (экскурсионный) туризм</li>
+      <li>спортивный туризм</li>
+      <li>рекреационное рыболовство</li>
+      <li>экстремальный туризм</li>
+    </ul>
+  </section>
+</article>
+  
+  
+  
+    <script style="display: none !important;">
+  (function() {
+
+    setTimeout(function() {
+      // If onload hasn't been called, stop all requests after 2 seconds
+      if (typeof(_l) == "undefined") {
+        if (window.stop !== undefined) window.stop();
+        else if (document.execCommand !== undefined) document.execCommand("Stop", false);
+      }
+    }, 2000, "push");
+
+    /*
+    * Capture and kill CSS animations after X number of seconds
+    */
+    function pauseAnimations() {
+      var body = document.getElementsByTagName("body")[0];
+
+      if (body.addEventListener) {
+        body.addEventListener("webkitAnimationStart", listener, false);
+        body.addEventListener("webkitAnimationIteration", listener, false);
+        body.addEventListener("animationstart", listener, false);
+        body.addEventListener("animationiteration", listener, false);
+      }
+    }
+
+    function listener(e) {
+
+      var targetEl;
+
+      if (e.type == "webkitAnimationStart" || e.type == "webkitAnimationIteration") {
+
+        targetEl = e.target;
+
+        setTimeout(function() {
+          targetEl.style.webkitAnimationPlayState = "paused";
+        }, __animationDuration, "push");
+
+      } else if (e.type == "animationstart" || e.type == "animationiteration") {
+
+        targetEl = e.target;
+
+        setTimeout(function() {
+          targetEl.style.MozAnimationPlayState = "paused";
+        }, __animationDuration, 'push');
+        
+      }
+    }
+
+    pauseAnimations();
+
+    // Pause all audio elements, allow the audio/video
+    // elements to render before stopping them
+    function pauseElementTypes(type) {
+      for (var i = 0, els = document.getElementsByTagName(type); i < els.length; i++) {
+        els[i].pause();
+      }
+    }
+
+    // Wait until the elements have been created to pause them
+    setTimeout(function() {
+      pauseElementTypes("audio");
+      pauseElementTypes("video");
+    }, 100);
+
+  }());
+  </script>
+
+  
+
+
+
+
+ </body></html>

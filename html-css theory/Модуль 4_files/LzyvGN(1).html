@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)https://s.codepen.io/GoIT-fe/fullembedgrid/LzyvGN?type=embed&animations=stop-after-5 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111">
+  <title>CodePen - counter</title>
+  
+  
+    <link rel="stylesheet" href="./normalize.min.css">
+
+  
+      <style>
+      body {
+  counter-reset    : count-section;
+}
+
+section {
+  counter-increment: count-section;
+  /* каждый новый селектор section  
+  будет обнулять счетчик count-article */
+  counter-reset    : count-article;
+}
+
+article {
+  counter-increment: count-article;
+    /* каждый новый селектора article  
+  будет обнулять счетчик count-healine */
+  counter-reset    :  count-healine;
+}
+
+p {
+   counter-increment: count-healine;
+}
+
+section h1:after {
+  content          : counter(count-section, upper-roman);
+}
+article h2:after {
+  content          : counter(count-article, upper-roman);
+}
+ 
+p:before {
+  content          : counter(count-healine);
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+p {
+  text-indent: 1rem;
+}
+
+
+body {
+  background: #63665C;
+}
+
+.wrapper {
+  width: 480px;
+  margin: auto;
+  background-color: #3B6050;
+  padding: 10px 20px 10px 15px;
+}
+
+article h2:after, section h1:after {
+  margin-left: 15px;
+}
+
+p:before {
+  margin-right: 1rem;
+}
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script></head></html>

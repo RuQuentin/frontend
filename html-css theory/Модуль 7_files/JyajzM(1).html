@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)https://s.codepen.io/GoIT-fe/fullembedgrid/JyajzM?type=embed&animations=stop-after-5 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111">
+  <title>CodePen - module-7-send-email</title>
+  
+  
+  
+  <style>
+/* @import url('https://fonts.googleapis.com/css?family=Bad+Script|Lobster');
+ */
+:root {
+  --orange: #E74200;
+  --bg-color: #6D6562;
+  --wr-color: #277553;
+  --wr-light-color: #078951;
+  --wr-dark-color: #3B6050;
+  --accent-bg: #B6006E;
+  --accent-color: #000;
+  --item-bg: #fff;
+  --flex-container: #C8400A;
+  --flex-container-semi: #AA5939;
+  --flex-container-dark: #8C6556;
+  --black-alfa2: 2px 2px 5px 5px hsla(0, 0%, 0%, 0.2);
+  --black-alfa1: 1px 1px 2px 2px hsla(0, 0%, 0%, 0.1);
+  --black-text-alfa2: 2px 2px 5px hsla(0, 0%, 0%, 0.2);
+  --black-text-alfa1: 1px 1px 2px hsla(0, 0%, 0%, 0.1);
+  --ss: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body { background-color: var(--bg-color); }
+
+.wrapper {
+  box-shadow: var(--black-alfa2);
+  background-color: var(--wr-color);
+  font-family: var(-ss);
+}
+
+.flex-container, 
+.box {
+  background: var(--flex-container);
+  box-shadow: var(--black-alfa2);
+  border-radius: 5px;
+}
+
+h3 { text-shadow: var(--black-text-alfa2); }
+h3:hover { text-shadow: var(--black-text-alfa1); }
+.item  {
+  background: var(--item-bg);
+  box-shadow: var(--black-alfa2);
+  border-radius: 5px;
+  text-align: center;    
+}
+
+.item:hover {
+  box-shadow: var(--black-alfa1);
+}
+
+.accent {
+  background-color:var(--accent-bg);
+}
+.accent > p { 
+  color: var(--accent-color);
+}
+
+.__wrapper {
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+  width: calc(180px * 4 + 5px * 8);
+}
+
+.__box {
+  display: inline-block;
+  width: 180px;
+  height: 50px;
+  margin: 5px;
+  box-shadow: var(--black-alfa1);
+}
+.__item1 {
+  background-color: var(--orange);
+}
+.__item2 {
+  background-color: var(--bg-color);
+}
+.__item3 {
+  background-color: var(--wr-color)ж
+}
+.__item4 {
+  background-color: var(--wr-light-color);
+}
+.__item5 {
+  background-color: var(--wr-dark-color);
+}
+.__item6 {
+  background-color: var(--accent-bg);
+}
+.__item7 {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+.__item8 {
+  background-color: var(--item-bg);
+}
+.__item9 {
+  background-color: var(--flex-container);
+}
+.__item10 {
+  background-color: var(--flex-container-semi);
+}
+.__item11 {
+  background-color: var(--flex-container-dark);
+}
+.__item12 {
+  background-color: #6D6562;
+}
+.__item13 {
+  background-color: #6D6562;
+}
+.__item14 {
+  background-color: #6D6562;
+}
+.__item15 {
+  background-color: #6D6562;
+}
+.__item16 {
+  background-color: #6D6562;
+}
+.__item17 {
+  background-color: #6D6562;
+}
+.__item18 {
+  background-color: #6D6562;
+}
+.__item19 {
+  background-color: #6D6562;
+}
+.__item20 {
+  background-color: #6D6562;
+}
+</style>
+
+      <style>
+      @import url('https://fonts.googleapis.com/css?family=Overlock');
+
+form, input {
+  font-size: 20px;
+}
+
+input { 
+  display: inline-block;
+  float: right;
+  width: 220px;
+  height: 30px;
+  margin: 2px auto;
+  line-height: 30px;
+  padding: 0;
+  border-radius: 5px;
+  text-indent: 6px;
+}
+
+input[type="submit"] {
+  display: block;
+  height: 34px;
+  width: 80px;
+  margin: 10px auto;
+  padding: 0 10px;
+  background-color: var(--wr-dark-color);
+  box-shadow: var(--black-alfa2);
+  color: #eee;
+  float: left;
+}
+input[type="submit"]:hover {
+  box-shadow: var(--black-alfa1);
+  background-color: var(--wr-light-color);
+  cursor: pointer; 
+}
+
+label {
+  display: block;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  margin: 10px;
+  width: 480px;
+  font-family: 'Overlock', cursive;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin: 2px;
+  text-shadow: var(--black-text-alfa2);
+  color: #aaa;
+}
+
+textarea  { float: right; }
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script></head></html>

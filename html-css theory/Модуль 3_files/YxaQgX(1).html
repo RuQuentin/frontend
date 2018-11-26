@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)https://s.codepen.io/GoIT-fe/fullembedgrid/YxaQgX?type=embed&animations=stop-after-5 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111">
+  <title>CodePen - background-attacment</title>
+  
+  
+    <link rel="stylesheet" href="./reset.min.css">
+
+  
+      <style>
+      .wrapper {
+  background:  hsla(154, 24%, 30%, 0.5) url(https://images.pexels.com/photos/724712/pexels-photo-724712.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+/*   background-attachment: fixed; */
+  background-attachment: local;
+/*   background-attachment: scroll; */
+  overflow: scroll;
+}
+
+h1 {
+  color:#fff;
+  font-size: 60px;
+  font-family: sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+div {
+  color:#fff;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-align: justify;
+  text-indent: 20px;
+  padding: 10px;
+}
+
+body {
+  background: linear-gradient( #bbb, transparent 1px),
+              linear-gradient( 90deg, #bbb, transparent 1px);
+  background-size: 28px 28px;
+  background-position: center center;
+}
+:root {
+  --wrapper-width: 320px;
+}
+.wrapper {
+  width: var(--wrapper-width);
+  height: calc(var(--wrapper-width) * 3);
+  margin: 80px auto;
+  border: 18px solid #3B6050;
+}
+.controls {
+  width: var(--wrapper-width);
+  height: calc(var(--wrapper-width) / 3);
+/*   margin: auto; */
+  padding: 0;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  top: 10px;
+  margin-left: calc(var(--wrapper-width) / -2);
+}
+
+button {
+  width: 70px;
+  height: 30px;
+  font-family: sans-serif;
+  font-size: 20px;
+  background: #3B6050;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover {
+  transform: scale(1.2);
+}
+    </style>
+
+  <style>*, *::before, *::after { animation-play-state: paused !important; }</style><script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+    <script>
+    (function() {
+      /*
+      * Capture all errors for this pen
+      **/
+      window.onerror = function(/* message, file, line */) {
+        return true;
+      };
+
+      /*
+      * Capture and kill Web Audio and Speech
+      */
+      if (typeof (AudioContext) != "undefined" || typeof (webkitAudioContext) != "undefined") {
+        AudioContext = function() {
+          return false;
+        };
+
+        webkitAudioContext = function() {
+          return false;
+        };
+      }
+
+      if (typeof (mozAudioContext) != "undefined") {
+        mozAudioContext = function() {
+          return false;
+        };
+      }
+
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis = {};
+      }
+      if ("speak" in speechSynthesis) {
+        speechSynthesis.speak = function() {
+          return false;
+        };
+      }
+
+      // Kill the browser asking for access to the video cam or audio
+      navigator.getUserMedia = function() {
+      };
+      navigator.mozGetUserMedia = function() {
+      };
+      navigator.webkitGetUserMedia = function() {
+      };
+      navigator.mediaDevices.getUserMedia = function() {
+      };
+
+      
+      /**
+      * Capture and kill animations after X number of seconds
+      **/
+      var __animationDuration = 4000;
+      var __animationsTimedOut = false;
+      var __animationRequests = [];
+      var __requestAnimationFrame = false;
+      var __cancelAnimationFrame = false;
+      var x, i;
+
+      var vendorsReqestAnimationFrame = [
+        "requestAnimationFrame",
+        "mozRequestAnimationFrame",
+        "webkitRequestAnimationFrame"
+      ];
+
+      // find the browsers requestAnimationFrame and cancelAnimationFrame
+      for (x = 0; x < vendorsReqestAnimationFrame.length; x++) {
+        if (!__requestAnimationFrame) {
+          __requestAnimationFrame = window[vendorsReqestAnimationFrame[x]
+          ];
+        }
+      }
+
+      __cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+
+      // Wrap the requestAnimationFrame so we can stop it in the future
+      function __reqFrame(callback, element) {
+        // after the timeout we no longer take requests
+        var timerID;
+        if (__animationsTimedOut) {
+          return 0;
+        } else {
+          timerID = __requestAnimationFrame(callback, element);
+          __animationRequests.push(timerID);
+
+          return timerID;
+        }
+      }
+
+      for (x = 0; x < vendorsReqestAnimationFrame.length; x++) {
+        window[vendorsReqestAnimationFrame[x]] = __reqFrame;
+      }
+
+      // Cancel the animations after expiration
+      setTimeout(function() {
+        for (i = 0; i < __animationRequests.length; i++) {
+          __cancelAnimationFrame(__animationRequests[i]);
+        }
+
+        var ss = window.document.createElement("style");
+        ss.textContent = "*, *::before, *::after { animation-play-state: paused !important; }";
+        var ref = window.document.getElementsByTagName("script")[0];
+        ref.parentNode.insertBefore(ss, ref);
+
+        __animationsTimedOut = true;
+      }, __animationDuration, "push");
+
+      /**
+      * Capture setInterval and setTimeout to kill after X number of seconds
+      **/
+      window.setInterval = (function(oldSetInterval) {
+        var registered = [];
+
+        function f(a,b) {
+          // check if the time has expired,
+          // after __animationDuration expires don't take anymore setIntervals
+          if (this.timedOut) {
+            return 0;
+          } else {
+            return registered[ registered.length ] = oldSetInterval(a,b);
+          }
+        }
+
+        f.clearAll = function() {
+          var r;
+
+          while (r = registered.pop()) {
+            clearInterval( r );
+          }
+
+          this.timedOut = true;
+        };
+
+        f.timedOut = false;
+
+        return f;
+      }(window.setInterval));
+
+      window.setTimeout = (function(oldSetTimeout) {
+        var registered = [];
+
+        // because some of our timeouts may time out afterwards
+        // we want to make sure they know the secret sauce to still use
+        // setTimeout after the time has expired, thats why we have a
+        // third param
+        function f(a, b, push) {
+          // check if the time has expired,
+          // after __animationDuration expires don't take anymore requests
+          if (this.timedOut && typeof(push) == "undefined") {
+            return 0;
+          } else {
+            // If push is there, never clear that interval
+            // so never add it to the registry
+            if (push) {
+              return oldSetTimeout(a,b);
+            } else {
+              return registered[ registered.length ] = oldSetTimeout(a,b);
+            }
+          }
+        }
+
+        f.clearAll = function() {
+          var r;
+
+          while (r = registered.pop()) {
+            clearTimeout( r );
+          }
+
+          this.timedOut = true;
+        };
+
+        f.timedOut = false;
+
+        return f;
+      }(window.setTimeout));
+
+      setTimeout(function() {
+
+        setTimeout.clearAll();
+        setInterval.clearAll();
+
+        // Stop Web Animations API
+        // Idea from Gregor: https://github.com/CodePen/CodePen-Bug-Reporting-Only/issues/173#issuecomment-203443301
+        // Status as of August 2016:
+        //  Chrome = stops animations
+        //  Safari = doesn't support anyway
+        //  Firefox = doesn't stop them, but probably will someday? Doesn't error
+        if (document.timeline && typeof document.timeline.getAnimations === "function") {
+          document.timeline.getAnimations().map(function(animation) {
+            animation.pause();
+          });
+        }
+    
+      }, __animationDuration, "push");
+
+    }());
+  </script>
+
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" onload="_l=&#39;t&#39;;">
+
+  <div class="controls">
+  <button data-name="local">Local</button>
+  <button data-name="fixed">Fixed</button>
+  <button data-name="scroll">Scroll</button>
+</div>
+<div class="wrapper">
+  <h1> Local </h1>
+  <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur tempore incidunt delectus totam dolor unde facere obcaecati, est, molestiae quo reiciendis molestias neque cupiditate corrupti? Pariatur ea iusto aliquid numquam.</div>
+  <div>Pariatur ducimus quas animi quam doloribus ullam, esse soluta mollitia modi voluptate. Vero veniam ea, iste animi, ex assumenda, ipsam impedit neque delectus nam sequi temporibus. Rerum adipisci quas hic.</div>
+  <div>Nam delectus expedita hic quisquam facilis natus aliquid et consequatur, eius fugit ullam modi voluptas maiores nisi praesentium voluptatem totam reprehenderit unde vitae quidem ea consequuntur, dolor provident minus! Unde.</div>
+  <div>Quidem earum non a. Recusandae dolorem repellendus sunt asperiores molestias fuga pariatur aperiam expedita, nihil sed quasi aliquid dolore deserunt necessitatibus laboriosam vel, quas facilis quam amet quisquam exercitationem? Laborum.</div>
+  <div>Accusamus, qui magni officia pariatur eveniet amet fugiat earum similique autem. Aperiam dicta maiores totam dolore iusto in laborum temporibus porro unde nisi, mollitia sequi doloremque harum assumenda, ullam doloribus?</div>
+  <div>Quas quidem minima magnam similique. Aut doloribus laborum velit molestiae exercitationem et natus numquam a perferendis odio tempore, in tenetur, quae impedit voluptatem fugit quia. Iste obcaecati dolore placeat nulla.</div>
+  <div>Ratione aspernatur illum facilis, natus necessitatibus molestias, quia mollitia exercitationem sed, dicta deleniti laboriosam iusto. Dolore cumque, eligendi atque magni officia illum dolores molestias aliquam aut sit blanditiis, minima reiciendis!</div>
+  <div>Ipsam adipisci mollitia incidunt tempora laborum, maiores aut veniam accusantium error maxime earum iure illo temporibus rerum sit alias veritatis rem expedita! Fugit beatae quae soluta quos natus eius obcaecati!</div>
+  <div>Id aspernatur laborum hic qui natus exercitationem quod quidem, vero sunt suscipit ab ea corporis quia molestias, dolorum expedita, reiciendis atque ut officia ducimus consequatur inventore modi! Voluptatibus, molestias veritatis.</div>
+  <div>Quisquam ducimus, quia consequuntur rerum quam tempore. Sunt provident veritatis non odit fuga consectetur. Ipsum nemo iste nulla! Fugiat dolor et optio perspiciatis similique, illo maxime nihil nemo quam amet.</div>
+  <div>Itaque doloribus ipsum excepturi quia ipsam incidunt necessitatibus natus eligendi dignissimos nam delectus esse cupiditate tempore eius quo illo saepe, repellat sed, soluta omnis! Qui ipsam ducimus blanditiis laudantium hic?</div>
+  <div>Odio deserunt fugiat enim incidunt inventore tempora possimus perspiciatis repellendus tenetur quam obcaecati magni maiores provident dolor dignissimos rerum dolorum porro, exercitationem nostrum. Odio, harum optio qui incidunt velit officiis.</div>
+  <div>Ut ipsa ab illo corrupti, architecto pariatur reprehenderit incidunt quaerat repellat obcaecati laudantium vitae dolorum expedita consequuntur accusamus impedit! Aspernatur vero aperiam delectus laborum dolorem architecto, repellat atque ab tempore.</div>
+  <div>Amet impedit aut delectus quis expedita vel hic quasi quam ut ab ea id est, ex rem consectetur doloremque quas sint architecto magnam doloribus maxime? Sapiente labore consequatur reprehenderit esse?</div>
+  <div>Voluptatum excepturi ipsa ducimus maiores impedit doloribus aliquid saepe amet, quibusdam corrupti repellendus quas maxime nam reiciendis exercitationem tenetur id molestias harum distinctio fugit recusandae labore cupiditate alias? Quia, temporibus.</div>
+</div>
+    <script src="./stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js.Без названия"></script>
+
+  
+  
+
+    <script>
+      const controls = document.querySelector('.controls');
+const wrapper = document.querySelector('.wrapper');
+const h1 = wrapper.querySelector('h1');
+
+controls.addEventListener('click', attachmentUpdate);
+
+function attachmentUpdate (e) {
+  let name = e.target.dataset.name;
+  wrapper.style.backgroundAttachment = name;
+  h1.textContent = name.toUpperCase();
+}
+      //# sourceURL=pen.js
+    </script>
+
+
+
+    <script style="display: none !important;">
+  (function() {
+
+    setTimeout(function() {
+      // If onload hasn't been called, stop all requests after 2 seconds
+      if (typeof(_l) == "undefined") {
+        if (window.stop !== undefined) window.stop();
+        else if (document.execCommand !== undefined) document.execCommand("Stop", false);
+      }
+    }, 2000, "push");
+
+    /*
+    * Capture and kill CSS animations after X number of seconds
+    */
+    function pauseAnimations() {
+      var body = document.getElementsByTagName("body")[0];
+
+      if (body.addEventListener) {
+        body.addEventListener("webkitAnimationStart", listener, false);
+        body.addEventListener("webkitAnimationIteration", listener, false);
+        body.addEventListener("animationstart", listener, false);
+        body.addEventListener("animationiteration", listener, false);
+      }
+    }
+
+    function listener(e) {
+
+      var targetEl;
+
+      if (e.type == "webkitAnimationStart" || e.type == "webkitAnimationIteration") {
+
+        targetEl = e.target;
+
+        setTimeout(function() {
+          targetEl.style.webkitAnimationPlayState = "paused";
+        }, __animationDuration, "push");
+
+      } else if (e.type == "animationstart" || e.type == "animationiteration") {
+
+        targetEl = e.target;
+
+        setTimeout(function() {
+          targetEl.style.MozAnimationPlayState = "paused";
+        }, __animationDuration, 'push');
+        
+      }
+    }
+
+    pauseAnimations();
+
+    // Pause all audio elements, allow the audio/video
+    // elements to render before stopping them
+    function pauseElementTypes(type) {
+      for (var i = 0, els = document.getElementsByTagName(type); i < els.length; i++) {
+        els[i].pause();
+      }
+    }
+
+    // Wait until the elements have been created to pause them
+    setTimeout(function() {
+      pauseElementTypes("audio");
+      pauseElementTypes("video");
+    }, 100);
+
+  }());
+  </script>
+
+  
+
+
+
+
+ </body></html>

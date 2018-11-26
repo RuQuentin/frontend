@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)https://s.codepen.io/GoIT-fe/fullembedgrid/zdLVMz?type=embed&animations=stop-after-5 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111">
+  <title>CodePen - module-7-names-in-form</title>
+  
+  
+  
+  <style>
+/* @import url('https://fonts.googleapis.com/css?family=Bad+Script|Lobster');
+ */
+:root {
+  --orange: #E74200;
+  --bg-color: #6D6562;
+  --wr-color: #277553;
+  --wr-light-color: #078951;
+  --wr-dark-color: #3B6050;
+  --accent-bg: #B6006E;
+  --accent-color: #000;
+  --item-bg: #fff;
+  --flex-container: #C8400A;
+  --flex-container-semi: #AA5939;
+  --flex-container-dark: #8C6556;
+  --black-alfa2: 2px 2px 5px 5px hsla(0, 0%, 0%, 0.2);
+  --black-alfa1: 1px 1px 2px 2px hsla(0, 0%, 0%, 0.1);
+  --black-text-alfa2: 2px 2px 5px hsla(0, 0%, 0%, 0.2);
+  --black-text-alfa1: 1px 1px 2px hsla(0, 0%, 0%, 0.1);
+  --ss: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body { background-color: var(--bg-color); }
+
+.wrapper {
+  box-shadow: var(--black-alfa2);
+  background-color: var(--wr-color);
+  font-family: var(-ss);
+}
+
+.flex-container, 
+.box {
+  background: var(--flex-container);
+  box-shadow: var(--black-alfa2);
+  border-radius: 5px;
+}
+
+h3 { text-shadow: var(--black-text-alfa2); }
+h3:hover { text-shadow: var(--black-text-alfa1); }
+.item  {
+  background: var(--item-bg);
+  box-shadow: var(--black-alfa2);
+  border-radius: 5px;
+  text-align: center;    
+}
+
+.item:hover {
+  box-shadow: var(--black-alfa1);
+}
+
+.accent {
+  background-color:var(--accent-bg);
+}
+.accent > p { 
+  color: var(--accent-color);
+}
+
+.__wrapper {
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+  width: calc(180px * 4 + 5px * 8);
+}
+
+.__box {
+  display: inline-block;
+  width: 180px;
+  height: 50px;
+  margin: 5px;
+  box-shadow: var(--black-alfa1);
+}
+.__item1 {
+  background-color: var(--orange);
+}
+.__item2 {
+  background-color: var(--bg-color);
+}
+.__item3 {
+  background-color: var(--wr-color)ж
+}
+.__item4 {
+  background-color: var(--wr-light-color);
+}
+.__item5 {
+  background-color: var(--wr-dark-color);
+}
+.__item6 {
+  background-color: var(--accent-bg);
+}
+.__item7 {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+.__item8 {
+  background-color: var(--item-bg);
+}
+.__item9 {
+  background-color: var(--flex-container);
+}
+.__item10 {
+  background-color: var(--flex-container-semi);
+}
+.__item11 {
+  background-color: var(--flex-container-dark);
+}
+.__item12 {
+  background-color: #6D6562;
+}
+.__item13 {
+  background-color: #6D6562;
+}
+.__item14 {
+  background-color: #6D6562;
+}
+.__item15 {
+  background-color: #6D6562;
+}
+.__item16 {
+  background-color: #6D6562;
+}
+.__item17 {
+  background-color: #6D6562;
+}
+.__item18 {
+  background-color: #6D6562;
+}
+.__item19 {
+  background-color: #6D6562;
+}
+.__item20 {
+  background-color: #6D6562;
+}
+</style>
+
+      <style>
+      @import url('https://fonts.googleapis.com/css?family=Overlock');
+
+form, input {
+  font-size: 20px;
+}
+
+input { 
+  display: inline-block;
+  float: right;
+  width: 150px;
+  height: 30px;
+  margin: 2px auto;
+  line-height: 30px;
+  padding: 0;
+  border-radius: 5px;
+  text-indent: 6px;
+}
+
+input[type="submit"] {
+  display: block;
+  height: 34px;
+  width: 80px;
+  margin: 10px auto;
+  padding: 0 10px;
+  background-color: var(--wr-dark-color);
+  box-shadow: var(--black-alfa2);
+  color: #eee;
+}
+input[type="submit"]:hover {
+  box-shadow: var(--black-alfa1);
+  background-color: var(--wr-light-color);
+  cursor: pointer;
+}
+
+label {
+  display: block;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  margin: 10px;
+  width: 380px;
+  font-family: 'Overlock', cursive;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin: 2px;
+  text-shadow: var(--black-text-alfa2);
+  color: #aaa;
+}
+
+.res {        
+  height: 25px;
+  margin: 2px 0 5px;
+  line-height: 25px;
+  color: #eee;
+  text-indent: 10px;
+  background-color: #333;
+  box-shadow: inset var(--black-alfa1);
+}
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+    <script>
+    (function() {
+      /*
+      * Capture all errors for this pen
+      **/
+      window.onerror = function(/* message, file, line */) {
+        return true;
+      };
+
+      /*
+      * Capture and kill Web Audio and Speech
+      */
+      if (typeof (AudioContext) != "undefined" || typeof (webkitAudioContext) != "undefined") {
+        AudioContext = function() {
+          return false;
+        };
+
+        webkitAudioContext = function() {
+          return false;
+        };
+      }
+
+      if (typeof (mozAudioContext) != "undefined") {
+        mozAudioContext = function() {
+          return false;
+        };
+      }
+
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis = {};
+      }
+      if ("speak" in speechSynthesis) {
+        speechSynthesis.speak = function() {
+          return false;
+        };
+      }
+
+      // Kill the browser asking for access to the video cam or audio
+      navigator.getUserMedia = function() {
+      };
+      navigator.mozGetUserMedia = function() {
+      };
+      navigator.webkitGetUserMedia = function() {
+      };
+      navigator.mediaDevices.getUserMedia = function() {
+      };
+
+      
+      /**
+      * Capture and kill animations after X number of seconds
+      **/
+      var __animationDuration = 4000;
+      var __animationsTimedOut = false;
+      var __animationRequests = [];
+      var __requestAnimationFrame = false;
+      var __cancelAnimationFrame = false;
+      var x, i;
+
+      var vendorsReqestAnimationFrame = [
+        "requestAnimationFrame",
+        "mozRequestAnimationFrame",
+        "webkitRequestAnimationFrame"
+      ];
+
+      // find the browsers requestAnimationFrame and cancelAnimationFrame
+      for (x = 0; x < vendorsReqestAnimationFrame.length; x++) {
+        if (!__requestAnimationFrame) {
+          __requestAnimationFrame = window[vendorsReqestAnimationFrame[x]
+          ];
+        }
+      }
+
+      __cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+
+      // Wrap the requestAnimationFrame so we can stop it in the future
+      function __reqFrame(callback, element) {
+        // after the timeout we no longer take requests
+        var timerID;
+        if (__animationsTimedOut) {
+          return 0;
+        } else {
+          timerID = __requestAnimationFrame(callback, element);
+          __animationRequests.push(timerID);
+
+          return timerID;
+        }
+      }
+
+      for (x = 0; x < vendorsReqestAnimationFrame.length; x++) {
+        window[vendorsReqestAnimationFrame[x]] = __reqFrame;
+      }
+
+      // Cancel the animations after expiration
+      setTimeout(function() {
+        for (i = 0; i < __animationRequests.length; i++) {
+          __cancelAnimationFrame(__animationRequests[i]);
+        }
+
+        var ss = window.document.createElement("style");
+        ss.textContent = "*, *::before, *::after { animation-play-state: paused !important; }";
+        var ref = window.document.getElementsByTagName("script")[0];
+        ref.parentNode.insertBefore(ss, ref);
+
+        __animationsTimedOut = true;
+      }, __animationDuration, "push");
+
+      /**
+      * Capture setInterval and setTimeout to kill after X number of seconds
+      **/
+      window.setInterval = (function(oldSetInterval) {
+        var registered = [];
+
+        function f(a,b) {
+          // check if the time has expired,
+          // after __animationDuration expires don't take anymore setIntervals
+          if (this.timedOut) {
+            return 0;
+          } else {
+            return registered[ registered.length ] = oldSetInterval(a,b);
+          }
+        }
+
+        f.clearAll = function() {
+          var r;
+
+          while (r = registered.pop()) {
+            clearInterval( r );
+          }
+
+          this.timedOut = true;
+        };
+
+        f.timedOut = false;
+
+        return f;
+      }(window.setInterval));
+
+      window.setTimeout = (function(oldSetTimeout) {
+        var registered = [];
+
+        // because some of our timeouts may time out afterwards
+        // we want to make sure they know the secret sauce to still use
+        // setTimeout after the time has expired, thats why we have a
+        // third param
+        function f(a, b, push) {
+          // check if the time has expired,
+          // after __animationDuration expires don't take anymore requests
+          if (this.timedOut && typeof(push) == "undefined") {
+            return 0;
+          } else {
+            // If push is there, never clear that interval
+            // so never add it to the registry
+            if (push) {
+              return oldSetTimeout(a,b);
+            } else {
+              return registered[ registered.length ] = oldSetTimeout(a,b);
+            }
+          }
+        }
+
+        f.clearAll = function() {
+          var r;
+
+          while (r = registered.pop()) {
+            clearTimeout( r );
+          }
+
+          this.timedOut = true;
+        };
+
+        f.timedOut = false;
+
+        return f;
+      }(window.setTimeout));
+
+      setTimeout(function() {
+
+        setTimeout.clearAll();
+        setInterval.clearAll();
+
+        // Stop Web Animations API
+        // Idea from Gregor: https://github.com/CodePen/CodePen-Bug-Reporting-Only/issues/173#issuecomment-203443301
+        // Status as of August 2016:
+        //  Chrome = stops animations
+        //  Safari = doesn't support anyway
+        //  Firefox = doesn't stop them, but probably will someday? Doesn't error
+        if (document.timeline && typeof document.timeline.getAnimations === "function") {
+          document.timeline.getAnimations().map(function(animation) {
+            animation.pause();
+          });
+        }
+    
+      }, __animationDuration, "push");
+
+    }());
+  </script>
+
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" onload="_l=&#39;t&#39;;">
+
+  <div class="container">
+
+  <div class="wrapper" id="res_name">
+    <h2>Input with name</h2>
+    <h4 class="res">?name=Bart&amp;surname=Simpson&amp;age=10#</h4>
+    <form action="https://s.codepen.io/GoIT-fe/fullembedgrid/zdLVMz?type=embed&amp;animations=stop-after-5#" method="get">
+      <label>Name 
+        <input type="text" name="name" value="Bart">
+      </label>
+      <label>Surame 
+        <input type="text" name="surname" value="Simpson">
+      </label>
+      <label>Age 
+        <input type="number" name="age" value="10">
+      </label>
+      <input type="submit" value="send" id="sub_name">
+    </form>
+  </div>
+
+  <div class="wrapper" id="res_noname">
+    <h2>Input without name</h2>
+    <h4 class="res">?=Bart&amp;=Simpson&amp;=10#</h4>
+    <form action="https://s.codepen.io/GoIT-fe/fullembedgrid/zdLVMz?type=embed&amp;animations=stop-after-5#" method="get">
+      <label>Name 
+        <input type="text" value="Bart">
+      </label>
+      <label>Surame
+        <input type="text" value="Simpson">
+      </label>
+      <label>Age 
+        <input type="number" value="10">
+      </label>
+      <input type="submit" value="send" id="sub_noname">
+    </form>
+  </div>
+
+</div>
+    <script src="./stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js.Без названия"></script>
+
+  
+  
+
+    <script>
+      
+const formName = document.getElementById('res_name');
+const name = formName.querySelector('h4');
+const subName = formName.querySelector('input[type="submit"]');
+const inputsName = formName.querySelectorAll('label > input');
+
+const formNoName = document.getElementById('res_noname');
+const noName = formNoName.querySelector('h4');
+const subNoName = formNoName.querySelector('input[type="submit"]');
+const inputsNoName = formNoName.querySelectorAll('label > input');
+
+subNoName.addEventListener('click', fillNoName);
+subName.addEventListener('click', fillName);
+
+
+function fill(arr, parent) {
+    let result = '?';
+    let fin = arr.length - 1;
+    Array.from(arr, (elem, item, arr) => {
+        let tail = item === fin ? '' : '&';
+        return result += elem.name + "=" + elem.value + tail;
+    });
+    parent.textContent = result + "#";
+}
+
+function fillNoName() { fill(inputsNoName, noName); }
+function fillName() { fill(inputsName, name); }
+
+fillNoName();
+fillName();
+      //# sourceURL=pen.js
+    </script>
+
+
+
+    <script style="display: none !important;">
+  (function() {
+
+    setTimeout(function() {
+      // If onload hasn't been called, stop all requests after 2 seconds
+      if (typeof(_l) == "undefined") {
+        if (window.stop !== undefined) window.stop();
+        else if (document.execCommand !== undefined) document.execCommand("Stop", false);
+      }
+    }, 2000, "push");
+
+    /*
+    * Capture and kill CSS animations after X number of seconds
+    */
+    function pauseAnimations() {
+      var body = document.getElementsByTagName("body")[0];
+
+      if (body.addEventListener) {
+        body.addEventListener("webkitAnimationStart", listener, false);
+        body.addEventListener("webkitAnimationIteration", listener, false);
+        body.addEventListener("animationstart", listener, false);
+        body.addEventListener("animationiteration", listener, false);
+      }
+    }
+
+    function listener(e) {
+
+      var targetEl;
+
+      if (e.type == "webkitAnimationStart" || e.type == "webkitAnimationIteration") {
+
+        targetEl = e.target;
+
+        setTimeout(function() {
+          targetEl.style.webkitAnimationPlayState = "paused";
+        }, __animationDuration, "push");
+
+      } else if (e.type == "animationstart" || e.type == "animationiteration") {
+
+        targetEl = e.target;
+
+        setTimeout(function() {
+          targetEl.style.MozAnimationPlayState = "paused";
+        }, __animationDuration, 'push');
+        
+      }
+    }
+
+    pauseAnimations();
+
+    // Pause all audio elements, allow the audio/video
+    // elements to render before stopping them
+    function pauseElementTypes(type) {
+      for (var i = 0, els = document.getElementsByTagName(type); i < els.length; i++) {
+        els[i].pause();
+      }
+    }
+
+    // Wait until the elements have been created to pause them
+    setTimeout(function() {
+      pauseElementTypes("audio");
+      pauseElementTypes("video");
+    }, 100);
+
+  }());
+  </script>
+
+  
+
+
+
+
+ </body></html>
