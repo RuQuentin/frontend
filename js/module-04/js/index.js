@@ -25,35 +25,39 @@ function Cashier(name, products) {
   this.customerMoney = 0;
   this.changeAmount = 0;
 
-  this.countTotalPrice = function(order) {
+  this.countTotalPrice = function (order) {
     for (const key in order) {
       this.totalPrice += order[key] * this.products[key];
     }
   }
 
-  this.getCustomerMoney = function() {
+  this.getCustomerMoney = function () {
     do {
       this.customerMoney = prompt(`Стоимость Вашего заказа - ${this.totalPrice}грн.`);
     } while (this.customerMoney !== null && this.customerMoney < this.totalPrice)
   }
 
-  this.countChange = function() {
+  this.countChange = function () {
     this.changeAmount = this.customerMoney - this.totalPrice;
   }
 
-  this.reset = function() {
+  this.reset = function () {
     this.totalPrice = 0;
     this.customerMoney = 0;
     this.changeAmount = 0;
   }
 
-  this.serve = function(order) {
+  this.serve = function (order) {
     this.countTotalPrice(order);
     this.getCustomerMoney();
-    this.countChange();
 
-    console.log(`Спасибо за покупку, ваша сдача ${this.changeAmount}`)
-    
+    if (this.customerMoney === null) {
+      console.log('Очень жаль, что-то пошло не так, приходите еще')
+    } else {
+      this.countChange();
+      console.log(`Спасибо за покупку, ваша сдача ${this.changeAmount}`)
+    }
+
     this.reset()
   }
 };
@@ -61,4 +65,3 @@ function Cashier(name, products) {
 const quentin = new Cashier('Quentin', products);
 
 quentin.serve(order)
-// console.log(a);
