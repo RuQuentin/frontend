@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Module-05</title>
+  </head>
+  <body>
+    <script src="js/index.js"></script>
+
+    <form action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
+      <!-- Имя -->
+      firstname: <input type="text" name="first_name"/><br/>
+      <!-- Поле Email (обязательно) -->
+      email: <input type="text" name="email"/><br/>
+      Мобильный Тел.: <input name="custom_mobile_phone" type="text" value="" /><br/>
+      <!-- Токен списка -->
+      <!-- Получить API ID на: https://app.getresponse.com/campaign_list.html -->
+      <input type="hidden" name="campaign_token" value="nJKoS" />
+      <!-- Кнопка подписаться -->
+      <input type="submit" value="Subscribe"/>
+    </form>
+
+    
+  </body>
+</html>
